@@ -1,0 +1,185 @@
+# Entity: market_data
+
+main: kit: entity: market_data: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "ask"
+      req: true
+      type: "`$NUMBER`"
+    }
+    {
+      name: "base_currency"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "bid"
+      req: true
+      type: "`$NUMBER`"
+    }
+    {
+      name: "category"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "change"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "change_percent"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "currency"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "description"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "last_updated"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "leverage"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "lot_siz"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "margin_requirement"
+      req: true
+      type: "`$NUMBER`"
+    }
+    {
+      name: "min_spread"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "name"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "quote_currency"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "spread"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "symbol"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "trading_hour"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "market_data"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: "Standard"
+                kind: "query"
+                name: "account_type"
+                orig: "account_type"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "all"
+                kind: "query"
+                name: "category"
+                orig: "category"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/instruments"
+          parts: [
+            "instruments"
+          ]
+          select: {
+            exist: [
+              "account_type"
+              "category"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                example: "Standard"
+                kind: "query"
+                name: "account_type"
+                orig: "account_type"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "EUR/USD,GBP/USD,XAU/USD"
+                kind: "query"
+                name: "symbol"
+                orig: "symbol"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/quotes"
+          parts: [
+            "quotes"
+          ]
+          select: {
+            exist: [
+              "account_type"
+              "symbol"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

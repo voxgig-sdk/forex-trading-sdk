@@ -1,0 +1,534 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Forex Trading API",
+    "description": "The Forex Trading API allows users to access the foreign exchange market for trading currencies and precious metals. It facilitates trading over 80 currency pairs with comprehensive trading options and insights into market performance.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Swissquote Support",
+      "url": "https://www.swissquote.com/en-ch/private/trade/products/forex"
+    },
+    "termsOfService": "https://www.swissquote.com"
+  },
+  "servers": [
+    {
+      "url": "https://api.swissquote.com/v1",
+      "description": "Production server"
+    }
+  ],
+  "security": [
+    {
+      "apiKey": []
+    },
+    {
+      "oauth2": [
+        "trade",
+        "read"
+      ]
+    }
+  ],
+  "paths": {
+    "/quotes": {
+      "get": {
+        "summary": "Get Market Quotes",
+        "description": "Retrieve real-time quotes for currency pairs and precious metals including bid/ask prices, spreads, and percentage changes.",
+        "operationId": "getQuotes",
+        "tags": [
+          "Market Data"
+        ],
+        "parameters": [
+          {
+            "name": "symbols",
+            "in": "query",
+            "description": "Comma-separated list of trading symbols (e.g., EUR/USD, GBP/USD, XAU/USD)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "EUR/USD,GBP/USD,XAU/USD"
+            }
+          },
+          {
+            "name": "accountType",
+            "in": "query",
+            "description": "Account type for pricing tier",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Standard",
+                "Premium",
+                "Prime"
+              ],
+              "default": "Standard"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with market quotes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "quotes": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Quote"
+                      }
+                    },
+                    "timestamp": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Time of quote generation"
+                    }
+                  }
+                },
+                "example": {
+                  "quotes": [
+                    {
+                      "symbol": "EUR/USD",
+                      "name": "Euro vs US Dollar",
+                      "bid": 1.085,
+                      "ask": 1.0867,
+                      "spread": 1.7,
+                      "change": 0.15,
+                      "changePercent": 0.14,
+                      "currency": "USD"
+                    },
+                    {
+                      "symbol": "XAU/USD",
+                      "name": "Gold CFDs",
+                      "bid": 2045.6,
+                      "ask": 2046.06,
+                      "spread": 0.46,
+                      "change": 12.3,
+                      "changePercent": 0.6,
+                      "currency": "USD"
+                    }
+                  ],
+                  "timestamp": "2024-01-15T14:30:00Z"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apiKey": []
+          }
+        ]
+      }
+    },
+    "/instruments": {
+      "get": {
+        "summary": "Get Available Trading Instruments",
+        "description": "Retrieve a list of available trading instruments including currency pairs and precious metals with their trading conditions, spreads, and margin requirements.",
+        "operationId": "getInstruments",
+        "tags": [
+          "Market Data"
+        ],
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "description": "Filter instruments by category",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "majors",
+                "minors",
+                "exotics",
+                "precious_metals",
+                "all"
+              ],
+              "default": "all"
+            }
+          },
+          {
+            "name": "accountType",
+            "in": "query",
+            "description": "Account type for pricing tier",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Standard",
+                "Premium",
+                "Prime"
+              ],
+              "default": "Standard"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with trading instruments",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "instruments": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Instrument"
+                      }
+                    },
+                    "count": {
+                      "type": "integer",
+                      "description": "Total number of instruments returned"
+                    }
+                  }
+                },
+                "example": {
+                  "instruments": [
+                    {
+                      "symbol": "EUR/USD",
+                      "name": "Euro vs US Dollar",
+                      "category": "majors",
+                      "baseCurrency": "EUR",
+                      "quoteCurrency": "USD",
+                      "minSpread": {
+                        "Standard": 1.7,
+                        "Premium": 1.4,
+                        "Prime": 1.1
+                      },
+                      "marginRequirement": 1,
+                      "lotSizes": [
+                        "micro",
+                        "mini",
+                        "standard"
+                      ],
+                      "tradingHours": "24/5",
+                      "leverage": {
+                        "max": 100
+                      }
+                    },
+                    {
+                      "symbol": "XAU/USD",
+                      "name": "Gold",
+                      "category": "precious_metals",
+                      "baseCurrency": "XAU",
+                      "quoteCurrency": "USD",
+                      "minSpread": {
+                        "Standard": 0.46,
+                        "Premium": 0.43,
+                        "Prime": 0.41
+                      },
+                      "marginRequirement": 2,
+                      "lotSizes": [
+                        "micro",
+                        "mini",
+                        "standard"
+                      ],
+                      "tradingHours": "24/5",
+                      "leverage": {
+                        "max": 50
+                      }
+                    }
+                  ],
+                  "count": 2
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apiKey": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Quote": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Trading symbol",
+            "example": "EUR/USD"
+          },
+          "name": {
+            "type": "string",
+            "description": "Full name of the trading pair",
+            "example": "Euro vs US Dollar"
+          },
+          "bid": {
+            "type": "number",
+            "format": "double",
+            "description": "Current bid price",
+            "example": 1.085
+          },
+          "ask": {
+            "type": "number",
+            "format": "double",
+            "description": "Current ask price",
+            "example": 1.0867
+          },
+          "spread": {
+            "type": "number",
+            "format": "double",
+            "description": "Spread in pips or points",
+            "example": 1.7
+          },
+          "change": {
+            "type": "number",
+            "format": "double",
+            "description": "Price change from previous close",
+            "example": 0.0015
+          },
+          "changePercent": {
+            "type": "number",
+            "format": "double",
+            "description": "Percentage change from previous close",
+            "example": 0.14
+          },
+          "currency": {
+            "type": "string",
+            "description": "Quote currency",
+            "example": "USD"
+          },
+          "lastUpdated": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Last update timestamp"
+          }
+        },
+        "required": [
+          "symbol",
+          "name",
+          "bid",
+          "ask",
+          "currency"
+        ]
+      },
+      "Instrument": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Trading symbol",
+            "example": "EUR/USD"
+          },
+          "name": {
+            "type": "string",
+            "description": "Full name of the instrument",
+            "example": "Euro vs US Dollar"
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "majors",
+              "minors",
+              "exotics",
+              "precious_metals"
+            ],
+            "description": "Instrument category"
+          },
+          "baseCurrency": {
+            "type": "string",
+            "description": "Base currency code",
+            "example": "EUR"
+          },
+          "quoteCurrency": {
+            "type": "string",
+            "description": "Quote currency code",
+            "example": "USD"
+          },
+          "minSpread": {
+            "type": "object",
+            "description": "Minimum spreads by account type (in pips or points)",
+            "properties": {
+              "Standard": {
+                "type": "number",
+                "format": "double"
+              },
+              "Premium": {
+                "type": "number",
+                "format": "double"
+              },
+              "Prime": {
+                "type": "number",
+                "format": "double"
+              }
+            }
+          },
+          "marginRequirement": {
+            "type": "number",
+            "format": "double",
+            "description": "Margin requirement percentage",
+            "example": 1
+          },
+          "lotSizes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "micro",
+                "mini",
+                "standard"
+              ]
+            },
+            "description": "Available lot sizes"
+          },
+          "tradingHours": {
+            "type": "string",
+            "description": "Trading hours availability",
+            "example": "24/5"
+          },
+          "leverage": {
+            "type": "object",
+            "properties": {
+              "max": {
+                "type": "integer",
+                "description": "Maximum leverage ratio",
+                "example": 100
+              }
+            }
+          },
+          "description": {
+            "type": "string",
+            "description": "Additional information about the instrument"
+          }
+        },
+        "required": [
+          "symbol",
+          "name",
+          "category",
+          "marginRequirement"
+        ]
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "description": "Error code",
+                "example": "INVALID_SYMBOL"
+              },
+              "message": {
+                "type": "string",
+                "description": "Human-readable error message",
+                "example": "The specified trading symbol is not valid"
+              },
+              "details": {
+                "type": "string",
+                "description": "Additional error details"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ]
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "apiKey": {
+        "type": "apiKey",
+        "name": "X-API-Key",
+        "in": "header",
+        "description": "API key for authentication"
+      },
+      "oauth2": {
+        "type": "oauth2",
+        "flows": {
+          "authorizationCode": {
+            "authorizationUrl": "https://auth.swissquote.com/oauth/authorize",
+            "tokenUrl": "https://auth.swissquote.com/oauth/token",
+            "scopes": {
+              "read": "Read market data and account information",
+              "trade": "Execute trades and manage positions"
+            }
+          }
+        },
+        "description": "OAuth2 authentication for trading operations"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Market Data",
+      "description": "Endpoints for retrieving market quotes and instrument information"
+    }
+  ]
+}

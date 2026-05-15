@@ -1,0 +1,90 @@
+{
+  "existing": {
+    "market_data": {
+      "MARKET_DATA00": {
+        "ask": 180,
+        "base_currency": "sb5",
+        "bid": 182,
+        "category": "sb7",
+        "change": 184,
+        "change_percent": 185,
+        "currency": "sba",
+        "description": "sbb",
+        "last_updated": "sbc",
+        "leverage": {},
+        "lot_siz": [],
+        "margin_requirement": 191,
+        "min_spread": {},
+        "name": "sc1",
+        "quote_currency": "sc2",
+        "spread": 195,
+        "symbol": "sc4",
+        "trading_hour": "sc5"
+      },
+      "MARKET_DATA01": {
+        "ask": 360,
+        "base_currency": "s169",
+        "bid": 362,
+        "category": "s16b",
+        "change": 364,
+        "change_percent": 365,
+        "currency": "s16e",
+        "description": "s16f",
+        "last_updated": "s170",
+        "leverage": {},
+        "lot_siz": [],
+        "margin_requirement": 371,
+        "min_spread": {},
+        "name": "s175",
+        "quote_currency": "s176",
+        "spread": 375,
+        "symbol": "s178",
+        "trading_hour": "s179"
+      },
+      "MARKET_DATA02": {
+        "ask": 540,
+        "base_currency": "s21d",
+        "bid": 542,
+        "category": "s21f",
+        "change": 544,
+        "change_percent": 545,
+        "currency": "s222",
+        "description": "s223",
+        "last_updated": "s224",
+        "leverage": {},
+        "lot_siz": [],
+        "margin_requirement": 551,
+        "min_spread": {},
+        "name": "s229",
+        "quote_currency": "s22a",
+        "spread": 555,
+        "symbol": "s22c",
+        "trading_hour": "s22d"
+      }
+    }
+  },
+  "new": {
+    "market_data": {
+      "market_data_ref01": {
+        "ask": 720,
+        "base_currency": "s2d1",
+        "bid": 722,
+        "category": "s2d3",
+        "change": 724,
+        "change_percent": 725,
+        "currency": "s2d6",
+        "description": "s2d7",
+        "last_updated": "s2d8",
+        "leverage": {},
+        "lot_siz": [],
+        "margin_requirement": 731,
+        "min_spread": {},
+        "name": "s2dd",
+        "quote_currency": "s2de",
+        "spread": 735,
+        "symbol": "s2e0",
+        "trading_hour": "s2e1"
+      }
+    }
+  }
+}

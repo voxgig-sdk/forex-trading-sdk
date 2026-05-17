@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/forex-trading-sdk"
-	"github.com/voxgig-sdk/forex-trading-sdk/core"
+	sdk "github.com/voxgig-sdk/forex-trading-sdk/go"
+	"github.com/voxgig-sdk/forex-trading-sdk/go/core"
 )
 
 func TestMarketDataDirect(t *testing.T) {

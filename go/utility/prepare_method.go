@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/forex-trading-sdk/core"
+import "github.com/voxgig-sdk/forex-trading-sdk/go/core"
 
 func prepareMethodUtil(ctx *core.Context) string {
 	opname := ctx.Op.Name

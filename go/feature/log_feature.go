@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/forex-trading-sdk/core"
+	"github.com/voxgig-sdk/forex-trading-sdk/go/core"
 )
 
 type LogFeature struct {

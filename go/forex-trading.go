@@ -1,10 +1,10 @@
 package voxgigforextradingsdk
 
 import (
-	"github.com/voxgig-sdk/forex-trading-sdk/core"
-	"github.com/voxgig-sdk/forex-trading-sdk/entity"
-	"github.com/voxgig-sdk/forex-trading-sdk/feature"
-	_ "github.com/voxgig-sdk/forex-trading-sdk/utility"
+	"github.com/voxgig-sdk/forex-trading-sdk/go/core"
+	"github.com/voxgig-sdk/forex-trading-sdk/go/entity"
+	"github.com/voxgig-sdk/forex-trading-sdk/go/feature"
+	_ "github.com/voxgig-sdk/forex-trading-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

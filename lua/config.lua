@@ -14,9 +14,6 @@ local function make_config()
     },
     options = {
       base = "https://api.swissquote.com/v1",
-      auth = {
-        prefix = "Bearer",
-      },
       headers = {
         ["content-type"] = "application/json",
       },
@@ -98,7 +95,7 @@ local function make_config()
             ["index$"] = 9,
           },
           {
-            ["name"] = "lot_siz",
+            ["name"] = "lot_size",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["active"] = true,

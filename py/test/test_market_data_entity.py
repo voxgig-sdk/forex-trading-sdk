@@ -92,7 +92,6 @@ def _market_data_basic_setup(extra):
         "FOREXTRADING_TEST_MARKET_DATA_ENTID": idmap,
         "FOREXTRADING_TEST_LIVE": "FALSE",
         "FOREXTRADING_TEST_EXPLAIN": "FALSE",
-        "FOREXTRADING_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +102,6 @@ def _market_data_basic_setup(extra):
     if env.get("FOREXTRADING_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("FOREXTRADING_APIKEY"),
             },
             extra or {},
         ])

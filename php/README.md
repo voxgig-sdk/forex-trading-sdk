@@ -20,9 +20,7 @@ loading a specific record.
 <?php
 require_once 'forextrading_sdk.php';
 
-$client = new ForexTradingSDK([
-    "apikey" => getenv("FOREX-TRADING_APIKEY"),
-]);
+$client = new ForexTradingSDK([]);
 ```
 
 ### 2. List marketdatas
@@ -119,7 +117,6 @@ Create a `.env.local` file at the project root:
 
 ```
 FOREX-TRADING_TEST_LIVE=TRUE
-FOREX-TRADING_APIKEY=<your-key>
 ```
 
 Then run:
@@ -142,7 +139,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -216,7 +212,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `description` |  |
 | `last_updated` |  |
 | `leverage` |  |
-| `lot_siz` |  |
+| `lot_size` |  |
 | `margin_requirement` |  |
 | `min_spread` |  |
 | `name` |  |
@@ -258,7 +254,7 @@ Create an instance: `const market_data = client.MarketData()`
 | `description` | ``$STRING`` |  |
 | `last_updated` | ``$STRING`` |  |
 | `leverage` | ``$OBJECT`` |  |
-| `lot_siz` | ``$ARRAY`` |  |
+| `lot_size` | ``$ARRAY`` |  |
 | `margin_requirement` | ``$NUMBER`` |  |
 | `min_spread` | ``$OBJECT`` |  |
 | `name` | ``$STRING`` |  |

@@ -17,9 +17,7 @@ loading a specific record.
 ```ts
 import { ForexTradingSDK } from 'forex-trading'
 
-const client = new ForexTradingSDK({
-  apikey: process.env.FOREX-TRADING_APIKEY,
-})
+const client = new ForexTradingSDK({})
 ```
 
 ### 2. List marketdatas
@@ -84,7 +82,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new ForexTradingSDK({ apikey: '...' })
+const client = new ForexTradingSDK()
 const testClient = client.tester()
 ```
 
@@ -120,7 +118,6 @@ const logger = {
 }
 
 const client = new ForexTradingSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -131,7 +128,6 @@ Create a `.env.local` file at the project root:
 
 ```
 FOREX-TRADING_TEST_LIVE=TRUE
-FOREX-TRADING_APIKEY=<your-key>
 ```
 
 Then run:
@@ -149,7 +145,6 @@ cd ts && npm test
 
 ```ts
 new ForexTradingSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -160,7 +155,6 @@ new ForexTradingSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -260,7 +254,7 @@ The `prepare()` method returns:
 | `description` |  |
 | `last_updated` |  |
 | `leverage` |  |
-| `lot_siz` |  |
+| `lot_size` |  |
 | `margin_requirement` |  |
 | `min_spread` |  |
 | `name` |  |
@@ -302,7 +296,7 @@ Create an instance: `const market_data = client.MarketData()`
 | `description` | ``$STRING`` |  |
 | `last_updated` | ``$STRING`` |  |
 | `leverage` | ``$OBJECT`` |  |
-| `lot_siz` | ``$ARRAY`` |  |
+| `lot_size` | ``$ARRAY`` |  |
 | `margin_requirement` | ``$NUMBER`` |  |
 | `min_spread` | ``$OBJECT`` |  |
 | `name` | ``$STRING`` |  |

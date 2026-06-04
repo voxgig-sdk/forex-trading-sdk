@@ -68,14 +68,12 @@ function market_data_direct_setup($mockres)
     $env = Runner::env_override([
         "FOREXTRADING_TEST_MARKET_DATA_ENTID" => [],
         "FOREXTRADING_TEST_LIVE" => "FALSE",
-        "FOREXTRADING_APIKEY" => "NONE",
     ]);
 
     $live = $env["FOREXTRADING_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["FOREXTRADING_APIKEY"],
         ];
         $client = new ForexTradingSDK($merged_opts);
         return [

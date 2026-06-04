@@ -23,12 +23,9 @@ loading a specific record.
 ### 1. Create a client
 
 ```python
-import os
 from forextrading_sdk import ForexTradingSDK
 
-client = ForexTradingSDK({
-    "apikey": os.environ.get("FOREX-TRADING_APIKEY"),
-})
+client = ForexTradingSDK({})
 ```
 
 ### 2. List marketdatas
@@ -121,7 +118,6 @@ Create a `.env.local` file at the project root:
 
 ```
 FOREX-TRADING_TEST_LIVE=TRUE
-FOREX-TRADING_APIKEY=<your-key>
 ```
 
 Then run:
@@ -145,7 +141,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `str` | API key for authentication. |
 | `base` | `str` | Base URL of the API server. |
 | `prefix` | `str` | URL path prefix prepended to all requests. |
 | `suffix` | `str` | URL path suffix appended to all requests. |
@@ -219,7 +214,7 @@ On error, `ok` is `False` and `err` contains the error value.
 | `description` |  |
 | `last_updated` |  |
 | `leverage` |  |
-| `lot_siz` |  |
+| `lot_size` |  |
 | `margin_requirement` |  |
 | `min_spread` |  |
 | `name` |  |
@@ -261,7 +256,7 @@ Create an instance: `const market_data = client.MarketData()`
 | `description` | ``$STRING`` |  |
 | `last_updated` | ``$STRING`` |  |
 | `leverage` | ``$OBJECT`` |  |
-| `lot_siz` | ``$ARRAY`` |  |
+| `lot_size` | ``$ARRAY`` |  |
 | `margin_requirement` | ``$NUMBER`` |  |
 | `min_spread` | ``$OBJECT`` |  |
 | `name` | ``$STRING`` |  |

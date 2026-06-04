@@ -56,7 +56,7 @@ main: kit: entity: market_data: {
       type: "`$OBJECT`"
     }
     {
-      name: "lot_siz"
+      name: "lot_size"
       req: false
       type: "`$ARRAY`"
     }

@@ -14,9 +14,6 @@ func MakeConfig() map[string]any {
 		},
 		"options": map[string]any{
 			"base": "https://api.swissquote.com/v1",
-			"auth": map[string]any{
-				"prefix": "Bearer",
-			},
 			"headers": map[string]any{
 				"content-type": "application/json",
 			},
@@ -98,7 +95,7 @@ func MakeConfig() map[string]any {
 						"index$": 9,
 					},
 					map[string]any{
-						"name": "lot_siz",
+						"name": "lot_size",
 						"req": false,
 						"type": "`$ARRAY`",
 						"active": true,

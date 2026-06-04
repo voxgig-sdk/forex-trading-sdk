@@ -100,7 +100,7 @@ market_data := client.MarketData(nil)
 | `description` | ``$STRING`` | No |  |
 | `last_updated` | ``$STRING`` | No |  |
 | `leverage` | ``$OBJECT`` | No |  |
-| `lot_siz` | ``$ARRAY`` | No |  |
+| `lot_size` | ``$ARRAY`` | No |  |
 | `margin_requirement` | ``$NUMBER`` | Yes |  |
 | `min_spread` | ``$OBJECT`` | No |  |
 | `name` | ``$STRING`` | Yes |  |

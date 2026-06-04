@@ -79,14 +79,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'FOREXTRADING_TEST_MARKET_DATA_ENTID': {},
     'FOREXTRADING_TEST_LIVE': 'FALSE',
-    'FOREXTRADING_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.FOREXTRADING_TEST_LIVE
 
   if (live) {
     const client = new ForexTradingSDK({
-      apikey: env.FOREXTRADING_APIKEY,
     })
 
     let idmap: any = env['FOREXTRADING_TEST_MARKET_DATA_ENTID']

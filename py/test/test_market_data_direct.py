@@ -61,14 +61,12 @@ def _market_data_direct_setup(mockres):
     env = runner.env_override({
         "FOREXTRADING_TEST_MARKET_DATA_ENTID": {},
         "FOREXTRADING_TEST_LIVE": "FALSE",
-        "FOREXTRADING_APIKEY": "NONE",
     })
 
     live = env.get("FOREXTRADING_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("FOREXTRADING_APIKEY"),
         }
         client = ForexTradingSDK(merged_opts)
         return {

@@ -31,9 +31,7 @@ loading a specific record.
 ```ruby
 require_relative "ForexTrading_sdk"
 
-client = ForexTradingSDK.new({
-  "apikey" => ENV["FOREX-TRADING_APIKEY"],
-})
+client = ForexTradingSDK.new({})
 ```
 
 ### 2. List marketdatas
@@ -127,7 +125,6 @@ Create a `.env.local` file at the project root:
 
 ```
 FOREX-TRADING_TEST_LIVE=TRUE
-FOREX-TRADING_APIKEY=<your-key>
 ```
 
 Then run:
@@ -150,7 +147,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `String` | API key for authentication. |
 | `base` | `String` | Base URL of the API server. |
 | `prefix` | `String` | URL path prefix prepended to all requests. |
 | `suffix` | `String` | URL path suffix appended to all requests. |
@@ -224,7 +220,7 @@ On error, `ok` is `false` and `err` contains the error value.
 | `description` |  |
 | `last_updated` |  |
 | `leverage` |  |
-| `lot_siz` |  |
+| `lot_size` |  |
 | `margin_requirement` |  |
 | `min_spread` |  |
 | `name` |  |
@@ -266,7 +262,7 @@ Create an instance: `const market_data = client.MarketData()`
 | `description` | ``$STRING`` |  |
 | `last_updated` | ``$STRING`` |  |
 | `leverage` | ``$OBJECT`` |  |
-| `lot_siz` | ``$ARRAY`` |  |
+| `lot_size` | ``$ARRAY`` |  |
 | `margin_requirement` | ``$NUMBER`` |  |
 | `min_spread` | ``$OBJECT`` |  |
 | `name` | ``$STRING`` |  |

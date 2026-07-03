@@ -10,13 +10,13 @@ The Ruby SDK for the ForexTrading API — an entity-oriented client using idioma
 
 ## Install
 ```bash
-gem install forex-trading-sdk
+gem install voxgig-sdk-forex-trading
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "forex-trading-sdk"
+gem "voxgig-sdk-forex-trading"
 ```
 
 Then run:

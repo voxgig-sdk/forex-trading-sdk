@@ -10,7 +10,7 @@ The Lua SDK for the ForexTrading API — an entity-oriented client using Lua con
 
 ## Install
 ```bash
-luarocks install forex-trading-sdk
+luarocks install voxgig-sdk-forex-trading
 ```
 
 If the module is not yet published, add the source directory to

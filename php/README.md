@@ -10,7 +10,7 @@ The PHP SDK for the ForexTrading API — an entity-oriented client using PHP con
 
 ## Install
 ```bash
-composer require voxgig/forex-trading-sdk
+composer require voxgig-sdk/forex-trading
 ```
 
 

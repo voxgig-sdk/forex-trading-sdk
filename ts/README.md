@@ -10,7 +10,7 @@ The TypeScript SDK for the ForexTrading API — a type-safe, entity-oriented cli
 
 ## Install
 ```bash
-npm install forex-trading
+npm install @voxgig-sdk/forex-trading
 ```
 ## Tutorial: your first API call
 

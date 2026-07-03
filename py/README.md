@@ -10,7 +10,7 @@ The Python SDK for the ForexTrading API — an entity-oriented client following 
 
 ## Install
 ```bash
-pip install forex-trading-sdk
+pip install voxgig-sdk-forex-trading
 ```
 
 Or install from source:

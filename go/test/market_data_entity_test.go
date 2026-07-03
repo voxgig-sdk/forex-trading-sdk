@@ -119,6 +119,7 @@ func market_dataBasicSetup(extra map[string]any) *entityTestSetup {
 		"FOREXTRADING_TEST_MARKET_DATA_ENTID": idmap,
 		"FOREXTRADING_TEST_LIVE":      "FALSE",
 		"FOREXTRADING_TEST_EXPLAIN":   "FALSE",
+		"FOREXTRADING_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["FOREXTRADING_TEST_MARKET_DATA_ENTID"])
@@ -129,6 +130,7 @@ func market_dataBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["FOREXTRADING_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["FOREXTRADING_APIKEY"],
 			},
 			extra,
 		})

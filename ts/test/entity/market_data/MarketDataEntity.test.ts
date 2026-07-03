@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'FOREX_TRADING_TEST_MARKET_DATA_ENTID': idmap,
     'FOREX_TRADING_TEST_LIVE': 'FALSE',
     'FOREX_TRADING_TEST_EXPLAIN': 'FALSE',
+    'FOREX_TRADING_APIKEY': 'NONE',
   })
 
   idmap = env['FOREX_TRADING_TEST_MARKET_DATA_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new ForexTradingSDK(merge([
       {
+        apikey: env.FOREX_TRADING_APIKEY,
       },
       extra
     ]))

@@ -1,20 +1,8 @@
 # ForexTrading SDK
 
-Live foreign exchange quotes from Swissquote covering 80+ currency pairs and precious metals
+Forex Trading API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Forex Trading API
-
-This SDK wraps Swissquote's forex market data feed. [Swissquote](https://www.swissquote.com/) is a Swiss online bank and broker that publishes live currency and precious-metal quotes alongside its retail trading platforms (CFXD, MetaTrader 4/5).
-
-What you get from the API:
-
-- Quotes for 80+ instruments, including FX majors (EUR/USD, USD/JPY, GBP/USD, USD/CHF, USD/CAD, AUD/USD, NZD/USD), minors (EUR/GBP, EUR/AUD, GBP/JPY, EUR/CHF, EUR/JPY), and exotics (USD/CNH, USD/TRY, USD/MXN, USD/NOK, USD/SEK, USD/ZAR).
-- Precious-metal crosses against major currencies: gold (XAU), silver (XAG), platinum (XPT), and palladium (XPD).
-- Example endpoints surfaced by the community catalogue include the XAU/USD and EUR/USD instrument feeds under `https://api.swissquote.com/v1`.
-
-Operational notes: the public quote feed does not require authentication, while trading actions require a Swissquote account and the relevant platform credentials. CORS is disabled on the public feed, so browser clients should proxy requests. Observed response times sit around 120-205 ms with high reliability in third-party monitoring.
 
 ## Try it
 
@@ -48,29 +36,31 @@ gem install forex-trading-sdk
 luarocks install forex-trading-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { ForexTradingSDK } from 'forex-trading'
 
-const client = new ForexTradingSDK({})
+const client = new ForexTradingSDK({
+  apikey: process.env.FOREX-TRADING_APIKEY,
+})
 
 // List all marketdatas
 const marketdatas = await client.MarketData().list()
+console.log(marketdatas.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -100,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **MarketData** | Live forex and precious-metal quote snapshots for a given instrument, served from the Swissquote public feed at `https://api.swissquote.com/v1` (e.g. EUR/USD, XAU/USD). | `/instruments` |
+| **MarketData** |  | `/instruments` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -110,12 +100,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from forextrading_sdk import ForexTradingSDK
 
-client = ForexTradingSDK({})
+client = ForexTradingSDK({
+    "apikey": os.environ.get("FOREX-TRADING_APIKEY"),
+})
 
 # List all marketdatas
-marketdatas, err = client.MarketData(None).list(None, None)
+marketdatas, err = client.MarketData().list()
+print(marketdatas)
 ```
 
 ### PHP
@@ -124,10 +118,13 @@ marketdatas, err = client.MarketData(None).list(None, None)
 <?php
 require_once 'forextrading_sdk.php';
 
-$client = new ForexTradingSDK([]);
+$client = new ForexTradingSDK([
+    "apikey" => getenv("FOREX-TRADING_APIKEY"),
+]);
 
 // List all marketdatas
-[$marketdatas, $err] = $client->MarketData(null)->list(null, null);
+[$marketdatas, $err] = $client->MarketData()->list();
+print_r($marketdatas);
 ```
 
 ### Golang
@@ -135,10 +132,13 @@ $client = new ForexTradingSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/forex-trading-sdk/go"
 
-client := sdk.NewForexTradingSDK(map[string]any{})
+client := sdk.NewForexTradingSDK(map[string]any{
+    "apikey": os.Getenv("FOREX-TRADING_APIKEY"),
+})
 
 // List all marketdatas
 marketdatas, err := client.MarketData(nil).List(nil, nil)
+fmt.Println(marketdatas)
 ```
 
 ### Ruby
@@ -146,10 +146,13 @@ marketdatas, err := client.MarketData(nil).List(nil, nil)
 ```ruby
 require_relative "ForexTrading_sdk"
 
-client = ForexTradingSDK.new({})
+client = ForexTradingSDK.new({
+  "apikey" => ENV["FOREX-TRADING_APIKEY"],
+})
 
 # List all marketdatas
-marketdatas, err = client.MarketData(nil).list(nil, nil)
+marketdatas, err = client.MarketData().list
+puts marketdatas
 ```
 
 ### Lua
@@ -157,10 +160,13 @@ marketdatas, err = client.MarketData(nil).list(nil, nil)
 ```lua
 local sdk = require("forex-trading_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("FOREX-TRADING_APIKEY"),
+})
 
 -- List all marketdatas
-local marketdatas, err = client:MarketData(nil):list(nil, nil)
+local marketdatas, err = client:MarketData():list()
+print(marketdatas)
 ```
 
 ## Unit testing in offline mode
@@ -179,25 +185,21 @@ const result = await client.MarketData().load({ id: 'test01' })
 ### Python
 
 ```python
-client = ForexTradingSDK.test(None, None)
-result, err = client.MarketData(None).load(
-    {"id": "test01"}, None
-)
+client = ForexTradingSDK.test()
+result, err = client.MarketData().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = ForexTradingSDK::test(null, null);
-[$result, $err] = $client->MarketData(null)->load(
-    ["id" => "test01"], null
-);
+$client = ForexTradingSDK::test();
+[$result, $err] = $client->MarketData()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.MarketData(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -206,19 +208,15 @@ result, err := client.MarketData(nil).Load(
 ### Ruby
 
 ```ruby
-client = ForexTradingSDK.test(nil, nil)
-result, err = client.MarketData(nil).load(
-  { "id" => "test01" }, nil
-)
+client = ForexTradingSDK.test
+result, err = client.MarketData().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:MarketData(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:MarketData():load({ id = "test01" })
 ```
 
 ## How it works
@@ -322,14 +320,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Forex Trading API
-
-- Upstream: [https://www.swissquote.com/en-ch/private/trade/products/forex](https://www.swissquote.com/en-ch/private/trade/products/forex)
-
-- Quote data is published by [Swissquote Bank Ltd](https://www.swissquote.com/) under its standard website terms.
-- Trading endpoints require an authenticated Swissquote account; the public quote feed is informational and not a contract for execution.
-- Review Swissquote's Legal, Privacy Policy, and Terms of Service pages before redistributing or relying on the data.
 
 ---
 

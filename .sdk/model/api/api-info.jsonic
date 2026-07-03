@@ -18,26 +18,7 @@ main: {
       termsOfService: "https://www.swissquote.com"
       title: "Forex Trading API"
       version: "1.0.0"
-      tagline: "Live foreign exchange quotes from Swissquote covering 80+ currency pairs and precious metals"
-      homepage: "https://www.swissquote.com/en-ch/private/trade/products/forex"
-      docs_url: "https://www.swissquote.com/en-ch/private/trade/products/forex"
-      license_short: "Swissquote terms of service apply; quote data provided for informational use"
-      license_md: `- Quote data is published by [Swissquote Bank Ltd](https://www.swissquote.com/) under its standard website terms.
-- Trading endpoints require an authenticated Swissquote account; the public quote feed is informational and not a contract for execution.
-- Review Swissquote's Legal, Privacy Policy, and Terms of Service pages before redistributing or relying on the data.`
-      about_md: `This SDK wraps Swissquote's forex market data feed. [Swissquote](https://www.swissquote.com/) is a Swiss online bank and broker that publishes live currency and precious-metal quotes alongside its retail trading platforms (CFXD, MetaTrader 4/5).
-
-What you get from the API:
-
-- Quotes for 80+ instruments, including FX majors (EUR/USD, USD/JPY, GBP/USD, USD/CHF, USD/CAD, AUD/USD, NZD/USD), minors (EUR/GBP, EUR/AUD, GBP/JPY, EUR/CHF, EUR/JPY), and exotics (USD/CNH, USD/TRY, USD/MXN, USD/NOK, USD/SEK, USD/ZAR).
-- Precious-metal crosses against major currencies: gold (XAU), silver (XAG), platinum (XPT), and palladium (XPD).
-- Example endpoints surfaced by the community catalogue include the XAU/USD and EUR/USD instrument feeds under \`https://api.swissquote.com/v1\`.
-
-Operational notes: the public quote feed does not require authentication, while trading actions require a Swissquote account and the relevant platform credentials. CORS is disabled on the public feed, so browser clients should proxy requests. Observed response times sit around 120-205 ms with high reliability in third-party monitoring.`
-      entity_desc: {
-        market_data: "Live forex and precious-metal quote snapshots for a given instrument, served from the Swissquote public feed at `https://api.swissquote.com/v1` (e.g. EUR/USD, XAU/USD)."
-      }
-      auth: false
     }
   }
 }
+

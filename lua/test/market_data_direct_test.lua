@@ -63,12 +63,14 @@ function market_data_direct_setup(mockres)
   local env = runner.env_override({
     ["FOREXTRADING_TEST_MARKET_DATA_ENTID"] = {},
     ["FOREXTRADING_TEST_LIVE"] = "FALSE",
+    ["FOREXTRADING_APIKEY"] = "NONE",
   })
 
   local live = env["FOREXTRADING_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["FOREXTRADING_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

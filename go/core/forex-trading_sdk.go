@@ -245,6 +245,9 @@ func (sdk *ForexTradingSDK) Direct(fetchargs map[string]any) (map[string]any, er
 }
 
 
+// MarketData returns a MarketData entity bound to this client.
+// Idiomatic usage: client.MarketData(nil).List(nil, nil) or
+// client.MarketData(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *ForexTradingSDK) MarketData(data map[string]any) ForexTradingEntity {
 	return NewMarketDataEntityFunc(sdk, data)
 }

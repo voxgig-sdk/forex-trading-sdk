@@ -84,7 +84,7 @@ same parameters as `direct()`.
 ## MarketDataEntity
 
 ```lua
-local market_data = client:MarketData(nil)
+local market_data = client:market_data(nil)
 ```
 
 ### Fields
@@ -117,7 +117,7 @@ local market_data = client:MarketData(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:MarketData():list()
+local results, err = client:market_data():list()
 ```
 
 ### Common Methods

@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch MarketDataListMatch
+---@param ctrl? table
+---@return MarketData[]
+---@return string? err
 function MarketDataEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

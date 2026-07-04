@@ -110,7 +110,7 @@ Alias for `ForexTradingSDK.test()`.
 ## MarketDataEntity
 
 ```ts
-const market_data = client.MarketData()
+const market_data = client.market_data
 ```
 
 ### Fields
@@ -143,7 +143,7 @@ const market_data = client.MarketData()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.MarketData().list()
+const results = await client.market_data.list()
 ```
 
 ### Common Methods

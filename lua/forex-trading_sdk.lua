@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:market_data():list() / client:market_data():load({ id = ... })
+function ForexTradingSDK:market_data(data)
+  local EntityMod = require("entity.market_data_entity")
+  if data == nil then
+    if self._market_data == nil then
+      self._market_data = EntityMod.new(self, nil)
+    end
+    return self._market_data
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:market_data() instead.
 function ForexTradingSDK:MarketData(data)
   local EntityMod = require("entity.market_data_entity")
   return EntityMod.new(self, data)

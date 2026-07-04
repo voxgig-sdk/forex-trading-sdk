@@ -2,6 +2,8 @@
 
 import { MarketDataEntity } from './entity/MarketDataEntity'
 
+export type * from './ForexTradingTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class ForexTradingSDK {
 
 
 
+  _market_data?: MarketDataEntity
+
+  // Idiomatic facade: `client.market_data.list()` / `client.market_data.load({ id })`.
+  get market_data(): MarketDataEntity {
+    return (this._market_data ??= new MarketDataEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.market_data` instead. */
   MarketData(data?: any) {
     const self = this
     return new MarketDataEntity(self,data)

@@ -9,9 +9,12 @@ The TypeScript SDK for the ForexTrading API — a type-safe, entity-oriented cli
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/forex-trading
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/forex-trading-sdk/releases](https://github.com/voxgig-sdk/forex-trading-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,17 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { ForexTradingSDK } from 'forex-trading'
+import { ForexTradingSDK } from '@voxgig-sdk/forex-trading'
 
 const client = new ForexTradingSDK({
-  apikey: process.env.FOREX-TRADING_APIKEY,
+  apikey: process.env.FOREX_TRADING_APIKEY,
 })
 ```
 
 ### 2. List marketdatas
 
 ```ts
-const result = await client.MarketData().list()
+const result = await client.marketdata.list()
 
 if (result.ok) {
   for (const item of result.data) {
@@ -81,7 +84,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = ForexTradingSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.marketdata.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -98,7 +101,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.marketdata
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -135,8 +138,8 @@ const client = new ForexTradingSDK({
 Create a `.env.local` file at the project root:
 
 ```
-FOREX-TRADING_TEST_LIVE=TRUE
-FOREX-TRADING_APIKEY=<your-key>
+FOREX_TRADING_TEST_LIVE=TRUE
+FOREX_TRADING_APIKEY=<your-key>
 ```
 
 Then run:
@@ -285,7 +288,7 @@ API path: `/instruments`
 
 ### MarketData
 
-Create an instance: `const market_data = client.MarketData()`
+Create an instance: `const market_data = client.market_data`
 
 #### Operations
 
@@ -319,7 +322,7 @@ Create an instance: `const market_data = client.MarketData()`
 #### Example: List
 
 ```ts
-const market_datas = await client.MarketData().list()
+const market_datas = await client.market_data.list()
 ```
 
 
@@ -380,7 +383,7 @@ forex-trading/
 Import the SDK from the package root:
 
 ```ts
-import { ForexTradingSDK } from 'forex-trading'
+import { ForexTradingSDK } from '@voxgig-sdk/forex-trading'
 ```
 
 ### Entity state
@@ -390,11 +393,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const marketdata = client.marketdata
+await marketdata.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// marketdata.data() now returns the loaded marketdata data
+// marketdata.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

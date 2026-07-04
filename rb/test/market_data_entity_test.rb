@@ -43,8 +43,7 @@ class MarketDataEntityTest < Minitest::Test
     market_data_ref01_ent = client.MarketData(nil)
     market_data_ref01_match = {}
 
-    market_data_ref01_list_result, err = market_data_ref01_ent.list(market_data_ref01_match, nil)
-    assert_nil err
+    market_data_ref01_list_result = market_data_ref01_ent.list(market_data_ref01_match, nil)
     assert market_data_ref01_list_result.is_a?(Array)
 
   end

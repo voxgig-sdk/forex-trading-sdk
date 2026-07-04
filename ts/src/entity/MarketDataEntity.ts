@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  MarketData,
+  MarketDataListMatch,
+} from '../ForexTradingTypes'
 
 // TODO: needs Entity superclass
-class MarketDataEntity extends ForexTradingEntityBase {
+class MarketDataEntity extends ForexTradingEntityBase<MarketData> {
 
   constructor(client: ForexTradingSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class MarketDataEntity extends ForexTradingEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: MarketDataListMatch, ctrl?: Control): Promise<MarketData[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class MarketDataEntity extends ForexTradingEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<MarketData[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

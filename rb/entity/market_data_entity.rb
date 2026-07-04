@@ -45,6 +45,7 @@ class MarketDataEntity
     end
   end
 
+  # @return [MarketData, Hash] the current MarketData data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class MarketDataEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of MarketData fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -65,6 +67,11 @@ class MarketDataEntity
   
 
   
+  # List MarketData items matching the given filter.
+  #
+  # @param reqmatch [MarketDataListMatch, Hash, nil] match filter (any subset of MarketData fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<MarketData>, Array] the matching MarketData items; raises ForexTradingError on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

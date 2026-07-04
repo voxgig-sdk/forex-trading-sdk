@@ -4,15 +4,19 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class MarketData:
+class MarketDataRequired(TypedDict):
     ask: float
     bid: float
     category: str
@@ -20,37 +24,38 @@ class MarketData:
     margin_requirement: float
     name: str
     symbol: str
-    base_currency: Optional[str] = None
-    change: Optional[float] = None
-    change_percent: Optional[float] = None
-    description: Optional[str] = None
-    last_updated: Optional[str] = None
-    leverage: Optional[dict] = None
-    lot_size: Optional[list] = None
-    min_spread: Optional[dict] = None
-    quote_currency: Optional[str] = None
-    spread: Optional[float] = None
-    trading_hour: Optional[str] = None
 
 
-@dataclass
-class MarketDataListMatch:
-    ask: Optional[float] = None
-    base_currency: Optional[str] = None
-    bid: Optional[float] = None
-    category: Optional[str] = None
-    change: Optional[float] = None
-    change_percent: Optional[float] = None
-    currency: Optional[str] = None
-    description: Optional[str] = None
-    last_updated: Optional[str] = None
-    leverage: Optional[dict] = None
-    lot_size: Optional[list] = None
-    margin_requirement: Optional[float] = None
-    min_spread: Optional[dict] = None
-    name: Optional[str] = None
-    quote_currency: Optional[str] = None
-    spread: Optional[float] = None
-    symbol: Optional[str] = None
-    trading_hour: Optional[str] = None
+class MarketData(MarketDataRequired, total=False):
+    base_currency: str
+    change: float
+    change_percent: float
+    description: str
+    last_updated: str
+    leverage: dict
+    lot_size: list
+    min_spread: dict
+    quote_currency: str
+    spread: float
+    trading_hour: str
 
+
+class MarketDataListMatch(TypedDict, total=False):
+    ask: float
+    base_currency: str
+    bid: float
+    category: str
+    change: float
+    change_percent: float
+    currency: str
+    description: str
+    last_updated: str
+    leverage: dict
+    lot_size: list
+    margin_requirement: float
+    min_spread: dict
+    name: str
+    quote_currency: str
+    spread: float
+    symbol: str
+    trading_hour: str

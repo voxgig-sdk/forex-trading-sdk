@@ -30,16 +30,14 @@ client = ForexTradingSDK.new({
 })
 ```
 
-### 2. List marketdatas
+### 2. List marketdata records
 
 ```ruby
 begin
-  result = client.marketdata.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of MarketData records — iterate directly.
+  marketdatas = client.MarketData.list
+  marketdatas.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -87,13 +85,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = ForexTradingSDK.test
+client = ForexTradingSDK.test({
+  "entity" => { "marketdata" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.marketdata.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+marketdata = client.MarketData.load({ "id" => "test01" })
+puts marketdata
 ```
 
 ### Use a custom fetch function
@@ -244,7 +246,7 @@ API path: `/instruments`
 
 ### MarketData
 
-Create an instance: `const market_data = client.market_data`
+Create an instance: `market_data = client.MarketData`
 
 #### Operations
 
@@ -277,8 +279,9 @@ Create an instance: `const market_data = client.market_data`
 
 #### Example: List
 
-```ts
-const market_datas = await client.market_data.list()
+```ruby
+# list returns an Array of MarketData records (raises on error).
+market_datas = client.MarketData.list
 ```
 
 
@@ -353,7 +356,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-marketdata = client.marketdata
+marketdata = client.MarketData
 marketdata.load({ "id" => "example_id" })
 
 # marketdata.data_get now returns the loaded marketdata data

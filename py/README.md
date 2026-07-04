@@ -34,14 +34,16 @@ client = ForexTradingSDK({
 })
 ```
 
-### 2. List marketdatas
+### 2. List marketdata records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.marketdata.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    marketdatas = client.MarketData().list({})
+    for marketdata in marketdatas:
+        print(marketdata)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -89,8 +91,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = ForexTradingSDK.test()
 
-result = client.marketdata.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+marketdata = client.MarketData().load({"id": "test01"})
+# marketdata contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -242,7 +245,7 @@ API path: `/instruments`
 
 ### MarketData
 
-Create an instance: `const market_data = client.market_data`
+Create an instance: `market_data = client.MarketData()`
 
 #### Operations
 
@@ -275,8 +278,8 @@ Create an instance: `const market_data = client.market_data`
 
 #### Example: List
 
-```ts
-const market_datas = await client.market_data.list()
+```python
+market_datas = client.MarketData().list({})
 ```
 
 
@@ -350,7 +353,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-marketdata = client.marketdata
+marketdata = client.MarketData()
 marketdata.load({"id": "example_id"})
 
 # marketdata.data_get() now returns the loaded marketdata data

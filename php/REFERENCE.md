@@ -86,7 +86,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## MarketDataEntity
 
 ```php
-$market_data = $client->market_data();
+$market_data = $client->MarketData();
 ```
 
 ### Fields
@@ -119,7 +119,7 @@ $market_data = $client->market_data();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->market_data()->list([]);
+$results = $client->MarketData()->list([]);
 ```
 
 ### Common Methods

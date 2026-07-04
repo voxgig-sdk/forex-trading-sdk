@@ -81,7 +81,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## MarketDataEntity
 
 ```python
-market_data = client.market_data
+market_data = client.MarketData()
 ```
 
 ### Fields
@@ -114,7 +114,9 @@ market_data = client.market_data
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.market_data.list({})
+results = client.MarketData().list({})
+for market_data in results:
+    print(market_data)
 ```
 
 ### Common Methods

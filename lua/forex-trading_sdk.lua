@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:market_data():list() / client:market_data():load({ id = ... })
-function ForexTradingSDK:market_data(data)
+-- Idiomatic facade: client:MarketData():list() / client:MarketData():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function ForexTradingSDK:MarketData(data)
   local EntityMod = require("entity.market_data_entity")
   if data == nil then
     if self._market_data == nil then
@@ -253,12 +254,6 @@ function ForexTradingSDK:market_data(data)
     end
     return self._market_data
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:market_data() instead.
-function ForexTradingSDK:MarketData(data)
-  local EntityMod = require("entity.market_data_entity")
   return EntityMod.new(self, data)
 end
 

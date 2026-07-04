@@ -28,9 +28,11 @@ const client = new ForexTradingSDK({
   apikey: process.env.FOREX_TRADING_APIKEY,
 })
 
-// List all marketdatas
-const marketdatas = await client.marketdata.list()
-console.log(marketdatas.data)
+// List all marketdatas (returns MarketData[])
+const marketdatas = await client.MarketData().list()
+for (const marketdata of marketdatas) {
+  console.log(marketdata)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -88,9 +90,10 @@ client = ForexTradingSDK({
     "apikey": os.environ.get("FOREX_TRADING_APIKEY"),
 })
 
-# List all marketdatas
-marketdatas = client.marketdata.list()
-print(marketdatas)
+# List all marketdatas (returns a list, raises on error)
+marketdatas = client.MarketData().list({})
+for marketdata in marketdatas:
+    print(marketdata)
 ```
 
 ### PHP
@@ -103,8 +106,8 @@ $client = new ForexTradingSDK([
     "apikey" => getenv("FOREX_TRADING_APIKEY"),
 ]);
 
-// List all marketdatas (throws on error)
-$marketdatas = $client->marketdata()->list();
+// List all marketdatas (returns an array; throws on error)
+$marketdatas = $client->MarketData()->list();
 print_r($marketdatas);
 ```
 
@@ -131,8 +134,8 @@ client = ForexTradingSDK.new({
   "apikey" => ENV["FOREX_TRADING_APIKEY"],
 })
 
-# List all marketdatas
-marketdatas = client.marketdata.list
+# List all marketdatas (returns an Array; raises on error)
+marketdatas = client.MarketData.list
 puts marketdatas
 ```
 
@@ -146,7 +149,7 @@ local client = sdk.new({
 })
 
 -- List all marketdatas
-local marketdatas, err = client:marketdata():list()
+local marketdatas, err = client:MarketData():list()
 print(marketdatas)
 ```
 
@@ -159,22 +162,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = ForexTradingSDK.test()
-const result = await client.marketdata.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const marketdata = await client.MarketData().load({ id: 'test01' })
+// marketdata is a bare MarketData populated with mock data
+console.log(marketdata)
 ```
 
 ### Python
 
 ```python
 client = ForexTradingSDK.test()
-result = client.marketdata.load({"id": "test01"})
+marketdata = client.MarketData().load({"id": "test01"})
+print(marketdata)
 ```
 
 ### PHP
 
 ```php
-$client = ForexTradingSDK::test();
-$result = $client->marketdata()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = ForexTradingSDK::test([
+    "entity" => ["marketdata" => ["test01" => ["id" => "test01"]]],
+]);
+$marketdata = $client->MarketData()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -189,15 +197,18 @@ result, err := client.MarketData(nil).Load(
 ### Ruby
 
 ```ruby
-client = ForexTradingSDK.test
-result = client.marketdata.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = ForexTradingSDK.test({
+  "entity" => { "marketdata" => { "test01" => { "id" => "test01" } } },
+})
+marketdata = client.MarketData.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:marketdata():load({ id = "test01" })
+local result, err = client:MarketData():load({ id = "test01" })
 ```
 
 ## How it works
@@ -245,6 +256,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

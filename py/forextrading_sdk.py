@@ -220,25 +220,15 @@ class ForexTradingSDK:
         }
 
 
-    @property
-    def market_data(self):
-        """Idiomatic facade: client.market_data.list() / client.market_data.load({"id": ...})."""
-        from entity.market_data_entity import MarketDataEntity
-        cached = getattr(self, "_market_data", None)
-        if cached is None:
-            cached = MarketDataEntity(self, None)
-            self._market_data = cached
-        return cached
-
-    def MarketData(self, data=None):
-        # Deprecated: use client.market_data instead.
+    def MarketData(self, data=None) -> "MarketDataEntity":
+        """Entity factory: client.MarketData().list({}) / client.MarketData().load({"id": ...})."""
         from entity.market_data_entity import MarketDataEntity
         return MarketDataEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "ForexTradingSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class ForexTradingSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.market_data_entity import MarketDataEntity

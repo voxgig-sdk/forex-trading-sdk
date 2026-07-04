@@ -233,10 +233,10 @@ class ForexTradingSDK
 
     private $_market_data = null;
 
-    // Idiomatic facade: $client->market_data()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias MarketData() (PHP method
-    // names are case-insensitive).
-    public function market_data($data = null)
+    // Canonical facade: $client->MarketData()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->market_data()
+    // resolves here too.
+    public function MarketData($data = null)
     {
         require_once __DIR__ . '/entity/market_data_entity.php';
         if ($data === null) {

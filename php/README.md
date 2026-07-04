@@ -31,18 +31,16 @@ $client = new ForexTradingSDK([
 ]);
 ```
 
-### 2. List marketdatas
+### 2. List marketdata records
 
 ```php
 try {
-    $result = $client->marketdata()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of MarketData records — iterate directly.
+    $marketdatas = $client->MarketData()->list();
+    foreach ($marketdatas as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -88,13 +86,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = ForexTradingSDK::test();
+$client = ForexTradingSDK::test([
+    "entity" => ["marketdata" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->marketdata()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$marketdata = $client->MarketData()->load(["id" => "test01"]);
+print_r($marketdata);
 ```
 
 ### Use a custom fetch function
@@ -249,7 +251,7 @@ API path: `/instruments`
 
 ### MarketData
 
-Create an instance: `const market_data = client.market_data`
+Create an instance: `$market_data = $client->MarketData();`
 
 #### Operations
 
@@ -282,8 +284,9 @@ Create an instance: `const market_data = client.market_data`
 
 #### Example: List
 
-```ts
-const market_datas = await client.market_data.list()
+```php
+// list() returns an array of MarketData records (throws on error).
+$market_datas = $client->MarketData()->list();
 ```
 
 
@@ -358,7 +361,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$marketdata = $client->marketdata();
+$marketdata = $client->MarketData();
 $marketdata->load(["id" => "example_id"]);
 
 // $marketdata->dataGet() now returns the loaded marketdata data

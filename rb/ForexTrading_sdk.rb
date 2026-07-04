@@ -208,13 +208,7 @@ class ForexTradingSDK
   end
 
 
-  # Idiomatic facade: client.market_data.list / client.market_data.load({ "id" => ... })
-  def market_data
-    require_relative 'entity/market_data_entity'
-    @market_data ||= MarketDataEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.market_data instead.
+  # Canonical facade: client.MarketData.list / client.MarketData.load({ "id" => ... })
   def MarketData(data = nil)
     require_relative 'entity/market_data_entity'
     MarketDataEntity.new(self, data)

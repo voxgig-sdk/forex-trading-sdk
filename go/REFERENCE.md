@@ -98,24 +98,24 @@ market_data := client.MarketData(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ask` | ``$NUMBER`` | Yes |  |
-| `base_currency` | ``$STRING`` | No |  |
-| `bid` | ``$NUMBER`` | Yes |  |
-| `category` | ``$STRING`` | Yes |  |
-| `change` | ``$NUMBER`` | No |  |
-| `change_percent` | ``$NUMBER`` | No |  |
-| `currency` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `last_updated` | ``$STRING`` | No |  |
-| `leverage` | ``$OBJECT`` | No |  |
-| `lot_size` | ``$ARRAY`` | No |  |
-| `margin_requirement` | ``$NUMBER`` | Yes |  |
-| `min_spread` | ``$OBJECT`` | No |  |
-| `name` | ``$STRING`` | Yes |  |
-| `quote_currency` | ``$STRING`` | No |  |
-| `spread` | ``$NUMBER`` | No |  |
-| `symbol` | ``$STRING`` | Yes |  |
-| `trading_hour` | ``$STRING`` | No |  |
+| `ask` | `float64` | Yes |  |
+| `base_currency` | `string` | No |  |
+| `bid` | `float64` | Yes |  |
+| `category` | `string` | Yes |  |
+| `change` | `float64` | No |  |
+| `change_percent` | `float64` | No |  |
+| `currency` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `last_updated` | `string` | No |  |
+| `leverage` | `map[string]any` | No |  |
+| `lot_size` | `[]any` | No |  |
+| `margin_requirement` | `float64` | Yes |  |
+| `min_spread` | `map[string]any` | No |  |
+| `name` | `string` | Yes |  |
+| `quote_currency` | `string` | No |  |
+| `spread` | `float64` | No |  |
+| `symbol` | `string` | Yes |  |
+| `trading_hour` | `string` | No |  |
 
 ### Operations
 

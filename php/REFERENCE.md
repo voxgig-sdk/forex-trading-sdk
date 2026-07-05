@@ -8,7 +8,7 @@ Complete API reference for the ForexTrading PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/forex-trading_sdk.php';
+require_once __DIR__ . '/forextrading_sdk.php';
 
 $client = new ForexTradingSDK($options);
 ```
@@ -46,11 +46,11 @@ $client = ForexTradingSDK::test();
 
 Create a new `MarketDataEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): ForexTradingUtility`
 
 Return a copy of the SDK utility object.
 
@@ -93,50 +93,50 @@ $market_data = $client->MarketData();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ask` | ``$NUMBER`` | Yes |  |
-| `base_currency` | ``$STRING`` | No |  |
-| `bid` | ``$NUMBER`` | Yes |  |
-| `category` | ``$STRING`` | Yes |  |
-| `change` | ``$NUMBER`` | No |  |
-| `change_percent` | ``$NUMBER`` | No |  |
-| `currency` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `last_updated` | ``$STRING`` | No |  |
-| `leverage` | ``$OBJECT`` | No |  |
-| `lot_size` | ``$ARRAY`` | No |  |
-| `margin_requirement` | ``$NUMBER`` | Yes |  |
-| `min_spread` | ``$OBJECT`` | No |  |
-| `name` | ``$STRING`` | Yes |  |
-| `quote_currency` | ``$STRING`` | No |  |
-| `spread` | ``$NUMBER`` | No |  |
-| `symbol` | ``$STRING`` | Yes |  |
-| `trading_hour` | ``$STRING`` | No |  |
+| `ask` | `float` | Yes |  |
+| `base_currency` | `string` | No |  |
+| `bid` | `float` | Yes |  |
+| `category` | `string` | Yes |  |
+| `change` | `float` | No |  |
+| `change_percent` | `float` | No |  |
+| `currency` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `last_updated` | `string` | No |  |
+| `leverage` | `array` | No |  |
+| `lot_size` | `array` | No |  |
+| `margin_requirement` | `float` | Yes |  |
+| `min_spread` | `array` | No |  |
+| `name` | `string` | Yes |  |
+| `quote_currency` | `string` | No |  |
+| `spread` | `float` | No |  |
+| `symbol` | `string` | Yes |  |
+| `trading_hour` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->MarketData()->list([]);
+$results = $client->MarketData()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -145,7 +145,7 @@ Set the entity match criteria.
 Create a new `MarketDataEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

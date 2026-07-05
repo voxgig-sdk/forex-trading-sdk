@@ -17,8 +17,6 @@ go build -o forex-trading-cli ./...
 ```sh
 # One-shot: arguments form a single AQL expression
 ./forex-trading-cli list market_data
-./forex-trading-cli load 1 market_data
-./forex-trading-cli load '{id:1}' market_data
 
 # REPL
 ./forex-trading-cli
@@ -29,8 +27,6 @@ go build -o forex-trading-cli ./...
 | Word     | Signatures                                   | Description                |
 |----------|----------------------------------------------|----------------------------|
 | `list`   | `[entity]` · `[query entity]`                | List records               |
-| `load`   | `[entity]` · `[query entity]`                | Load a single record       |
-| `update` | `[entity]` · `[query entity]`                | Update a record            |
 
 `query` is either a Map (`{id:1}`) or a Scalar (`1`, treated as `{id:1}`).
 `entity` is one of the SDK's entity names (auto-quoted as an atom).

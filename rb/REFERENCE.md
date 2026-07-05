@@ -8,7 +8,7 @@ Complete API reference for the ForexTrading Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'forex-trading_sdk'
+require_relative 'ForexTrading_sdk'
 
 client = ForexTradingSDK.new(options)
 ```
@@ -94,33 +94,33 @@ market_data = client.MarketData
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ask` | ``$NUMBER`` | Yes |  |
-| `base_currency` | ``$STRING`` | No |  |
-| `bid` | ``$NUMBER`` | Yes |  |
-| `category` | ``$STRING`` | Yes |  |
-| `change` | ``$NUMBER`` | No |  |
-| `change_percent` | ``$NUMBER`` | No |  |
-| `currency` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `last_updated` | ``$STRING`` | No |  |
-| `leverage` | ``$OBJECT`` | No |  |
-| `lot_size` | ``$ARRAY`` | No |  |
-| `margin_requirement` | ``$NUMBER`` | Yes |  |
-| `min_spread` | ``$OBJECT`` | No |  |
-| `name` | ``$STRING`` | Yes |  |
-| `quote_currency` | ``$STRING`` | No |  |
-| `spread` | ``$NUMBER`` | No |  |
-| `symbol` | ``$STRING`` | Yes |  |
-| `trading_hour` | ``$STRING`` | No |  |
+| `ask` | `Float` | Yes |  |
+| `base_currency` | `String` | No |  |
+| `bid` | `Float` | Yes |  |
+| `category` | `String` | Yes |  |
+| `change` | `Float` | No |  |
+| `change_percent` | `Float` | No |  |
+| `currency` | `String` | Yes |  |
+| `description` | `String` | No |  |
+| `last_updated` | `String` | No |  |
+| `leverage` | `Hash` | No |  |
+| `lot_size` | `Array` | No |  |
+| `margin_requirement` | `Float` | Yes |  |
+| `min_spread` | `Hash` | No |  |
+| `name` | `String` | Yes |  |
+| `quote_currency` | `String` | No |  |
+| `spread` | `Float` | No |  |
+| `symbol` | `String` | Yes |  |
+| `trading_hour` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.MarketData.list(nil)
+results = client.MarketData.list
 ```
 
 ### Common Methods

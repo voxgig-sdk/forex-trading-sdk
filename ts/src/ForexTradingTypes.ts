@@ -26,5 +26,24 @@ export interface MarketData {
   trading_hour?: string
 }
 
-export type MarketDataListMatch = Partial<MarketData>
+export interface MarketDataListMatch {
+  ask?: number
+  base_currency?: string
+  bid?: number
+  category?: string
+  change?: number
+  change_percent?: number
+  currency?: string
+  description?: string
+  last_updated?: string
+  leverage?: Record<string, any>
+  lot_size?: any[]
+  margin_requirement?: number
+  min_spread?: Record<string, any>
+  name?: string
+  quote_currency?: string
+  spread?: number
+  symbol?: string
+  trading_hour?: string
+}
 

@@ -85,7 +85,7 @@ MarketData = Struct.new(
   keyword_init: true
 )
 
-# Match filter for MarketData#list (any subset of MarketData fields).
+# Request payload for MarketData#list.
 #
 # @!attribute [rw] ask
 #   @return [Float, nil]

@@ -35,7 +35,7 @@ class MarketData
     public ?string $trading_hour = null;
 }
 
-/** Match filter for MarketData#list (any subset of MarketData fields). */
+/** Request payload for MarketData#list. */
 class MarketDataListMatch
 {
     public ?float $ask = null;

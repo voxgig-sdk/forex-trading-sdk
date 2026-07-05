@@ -30,8 +30,7 @@ type MarketData struct {
 	TradingHour *string `json:"trading_hour,omitempty"`
 }
 
-// MarketDataListMatch mirrors the market_data fields as an all-optional match
-// filter (Go analog of Partial<MarketData>).
+// MarketDataListMatch is the typed request payload for MarketData.ListTyped.
 type MarketDataListMatch struct {
 	Ask *float64 `json:"ask,omitempty"`
 	BaseCurrency *string `json:"base_currency,omitempty"`

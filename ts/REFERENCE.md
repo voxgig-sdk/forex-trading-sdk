@@ -117,24 +117,24 @@ const market_data = client.MarketData()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ask` | ``$NUMBER`` | Yes |  |
-| `base_currency` | ``$STRING`` | No |  |
-| `bid` | ``$NUMBER`` | Yes |  |
-| `category` | ``$STRING`` | Yes |  |
-| `change` | ``$NUMBER`` | No |  |
-| `change_percent` | ``$NUMBER`` | No |  |
-| `currency` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `last_updated` | ``$STRING`` | No |  |
-| `leverage` | ``$OBJECT`` | No |  |
-| `lot_size` | ``$ARRAY`` | No |  |
-| `margin_requirement` | ``$NUMBER`` | Yes |  |
-| `min_spread` | ``$OBJECT`` | No |  |
-| `name` | ``$STRING`` | Yes |  |
-| `quote_currency` | ``$STRING`` | No |  |
-| `spread` | ``$NUMBER`` | No |  |
-| `symbol` | ``$STRING`` | Yes |  |
-| `trading_hour` | ``$STRING`` | No |  |
+| `ask` | `number` | Yes |  |
+| `base_currency` | `string` | No |  |
+| `bid` | `number` | Yes |  |
+| `category` | `string` | Yes |  |
+| `change` | `number` | No |  |
+| `change_percent` | `number` | No |  |
+| `currency` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `last_updated` | `string` | No |  |
+| `leverage` | `Record<string, any>` | No |  |
+| `lot_size` | `any[]` | No |  |
+| `margin_requirement` | `number` | Yes |  |
+| `min_spread` | `Record<string, any>` | No |  |
+| `name` | `string` | Yes |  |
+| `quote_currency` | `string` | No |  |
+| `spread` | `number` | No |  |
+| `symbol` | `string` | Yes |  |
+| `trading_hour` | `string` | No |  |
 
 ### Operations
 

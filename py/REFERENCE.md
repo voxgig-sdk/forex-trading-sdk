@@ -8,7 +8,7 @@ Complete API reference for the ForexTrading Python SDK.
 ### Constructor
 
 ```python
-from forex-trading_sdk import ForexTradingSDK
+from forextrading_sdk import ForexTradingSDK
 
 client = ForexTradingSDK(options)
 ```
@@ -88,33 +88,33 @@ market_data = client.MarketData()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ask` | ``$NUMBER`` | Yes |  |
-| `base_currency` | ``$STRING`` | No |  |
-| `bid` | ``$NUMBER`` | Yes |  |
-| `category` | ``$STRING`` | Yes |  |
-| `change` | ``$NUMBER`` | No |  |
-| `change_percent` | ``$NUMBER`` | No |  |
-| `currency` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `last_updated` | ``$STRING`` | No |  |
-| `leverage` | ``$OBJECT`` | No |  |
-| `lot_size` | ``$ARRAY`` | No |  |
-| `margin_requirement` | ``$NUMBER`` | Yes |  |
-| `min_spread` | ``$OBJECT`` | No |  |
-| `name` | ``$STRING`` | Yes |  |
-| `quote_currency` | ``$STRING`` | No |  |
-| `spread` | ``$NUMBER`` | No |  |
-| `symbol` | ``$STRING`` | Yes |  |
-| `trading_hour` | ``$STRING`` | No |  |
+| `ask` | `float` | Yes |  |
+| `base_currency` | `str` | No |  |
+| `bid` | `float` | Yes |  |
+| `category` | `str` | Yes |  |
+| `change` | `float` | No |  |
+| `change_percent` | `float` | No |  |
+| `currency` | `str` | Yes |  |
+| `description` | `str` | No |  |
+| `last_updated` | `str` | No |  |
+| `leverage` | `dict` | No |  |
+| `lot_size` | `list` | No |  |
+| `margin_requirement` | `float` | Yes |  |
+| `min_spread` | `dict` | No |  |
+| `name` | `str` | Yes |  |
+| `quote_currency` | `str` | No |  |
+| `spread` | `float` | No |  |
+| `symbol` | `str` | Yes |  |
+| `trading_hour` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.MarketData().list({})
+results = client.MarketData().list()
 for market_data in results:
     print(market_data)
 ```

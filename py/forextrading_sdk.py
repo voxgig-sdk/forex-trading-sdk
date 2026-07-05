@@ -221,7 +221,7 @@ class ForexTradingSDK:
 
 
     def MarketData(self, data=None) -> "MarketDataEntity":
-        """Entity factory: client.MarketData().list({}) / client.MarketData().load({"id": ...})."""
+        """Entity factory: client.MarketData().list() / client.MarketData().load({"id": ...})."""
         from entity.market_data_entity import MarketDataEntity
         return MarketDataEntity(self, data)
 

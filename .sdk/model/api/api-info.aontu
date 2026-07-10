@@ -9,16 +9,23 @@ main: {
         url: "https://www.swissquote.com/en-ch/private/trade/products/forex"
       }
       description: "The Forex Trading API allows users to access the foreign exchange market for trading currencies and precious metals. It facilitates trading over 80 currency pairs with comprehensive trading options and insights into market performance."
+      security: {
+        in: "header"
+        name: "X-API-Key"
+        prefix: ""
+        scheme: "apiKey"
+        type: "apiKey"
+      }
       servers: [
         {
           description: "Production server"
           url: "https://api.swissquote.com/v1"
         }
       ]
+      summary: "The Forex Trading API allows users to access the foreign exchange market for trading currencies and precious metals."
       termsOfService: "https://www.swissquote.com"
       title: "Forex Trading API"
       version: "1.0.0"
+      website: "https://swissquote.com"
     }
   }
-}
-

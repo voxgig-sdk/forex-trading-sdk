@@ -91,7 +91,8 @@ same parameters as `Direct()`.
 ## MarketDataEntity
 
 ```go
-market_data := client.MarketData(nil)
+marketData := client.MarketData(nil)
+fmt.Println(marketData.GetName()) // "market_data"
 ```
 
 ### Fields
@@ -125,6 +126,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.MarketData(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods

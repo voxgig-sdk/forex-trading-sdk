@@ -53,12 +53,12 @@ func main() {
         "apikey": os.Getenv("FOREX_TRADING_APIKEY"),
     })
 
-    // List marketdata records — the value is the array of records itself.
-    marketdatas, err := client.MarketData(nil).List(nil, nil)
+    // List marketData records — the value is the array of records itself.
+    marketDatas, err := client.MarketData(nil).List(nil, nil)
     if err != nil {
         panic(err)
     }
-    for _, item := range marketdatas.([]any) {
+    for _, item := range marketDatas.([]any) {
         fmt.Println(item)
     }
 }
@@ -140,13 +140,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-marketdata, err := client.MarketData(nil).List(
+marketData, err := client.MarketData(nil).List(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(marketdata) // the returned mock data
+fmt.Println(marketData) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -252,9 +252,9 @@ Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    marketdata, err := client.MarketData(nil).List(map[string]any{/* fields */}, nil)
+    marketData, err := client.MarketData(nil).List(map[string]any{/* fields */}, nil)
     if err != nil { /* handle */ }
-    // marketdata is the returned record
+    // marketData is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -295,7 +295,7 @@ API path: `/instruments`
 
 ### MarketData
 
-Create an instance: `market_data := client.MarketData(nil)`
+Create an instance: `marketData := client.MarketData(nil)`
 
 #### Operations
 
@@ -329,11 +329,11 @@ Create an instance: `market_data := client.MarketData(nil)`
 #### Example: List
 
 ```go
-market_datas, err := client.MarketData(nil).List(nil, nil)
+marketDatas, err := client.MarketData(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(market_datas) // the array of records
+fmt.Println(marketDatas) // the array of records
 ```
 
 

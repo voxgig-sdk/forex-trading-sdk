@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -358,15 +355,25 @@
           "url": "https://www.swissquote.com/en-ch/private/trade/products/forex"
         },
         "description": "The Forex Trading API allows users to access the foreign exchange market for trading currencies and precious metals. It facilitates trading over 80 currency pairs with comprehensive trading options and insights into market performance.",
+        "meta_source": "https://www.freepublicapis.com",
+        "security": {
+          "in": "header",
+          "name": "X-API-Key",
+          "prefix": "",
+          "scheme": "apiKey",
+          "type": "apiKey"
+        },
         "servers": [
           {
             "description": "Production server",
             "url": "https://api.swissquote.com/v1"
           }
         ],
+        "summary": "The Forex Trading API allows users to access the foreign exchange market for trading currencies and precious metals.",
         "termsOfService": "https://www.swissquote.com",
         "title": "Forex Trading API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://swissquote.com"
       },
       "option": {},
       "target": {
@@ -419,6 +426,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -469,6 +479,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

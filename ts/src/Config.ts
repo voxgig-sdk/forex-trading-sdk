@@ -39,7 +39,7 @@ class Config {
     base: 'https://api.swissquote.com/v1',
 
     auth: {
-      prefix: 'Bearer',
+      prefix: '',
     },
 
     headers: {

@@ -16,7 +16,7 @@ module ForexTradingConfig
       "options" => {
         "base" => "https://api.swissquote.com/v1",
         "auth" => {
-          "prefix" => "Bearer",
+          "prefix" => "",
         },
         "headers" => {
           "content-type" => "application/json",

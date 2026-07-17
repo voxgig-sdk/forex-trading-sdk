@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- ForexTrading SDK exists test
 
 local sdk = require("forex-trading_sdk")
 

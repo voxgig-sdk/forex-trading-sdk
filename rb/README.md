@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = ForexTradingSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 marketdata = client.MarketData.list()
 puts marketdata
 ```
@@ -241,23 +242,23 @@ returns a result `Hash` with these keys:
 | Field | Description |
 | --- | --- |
 | `ask` |  |
-| `base_currency` |  |
+| `baseCurrency` |  |
 | `bid` |  |
 | `category` |  |
 | `change` |  |
-| `change_percent` |  |
+| `changePercent` |  |
 | `currency` |  |
 | `description` |  |
-| `last_updated` |  |
+| `lastUpdated` |  |
 | `leverage` |  |
-| `lot_size` |  |
-| `margin_requirement` |  |
-| `min_spread` |  |
+| `lotSizes` |  |
+| `marginRequirement` |  |
+| `minSpread` |  |
 | `name` |  |
-| `quote_currency` |  |
+| `quoteCurrency` |  |
 | `spread` |  |
 | `symbol` |  |
-| `trading_hour` |  |
+| `tradingHours` |  |
 
 Operations: List.
 
@@ -283,23 +284,23 @@ Create an instance: `market_data = client.MarketData`
 | Field | Type | Description |
 | --- | --- | --- |
 | `ask` | `Float` |  |
-| `base_currency` | `String` |  |
+| `baseCurrency` | `String` |  |
 | `bid` | `Float` |  |
 | `category` | `String` |  |
 | `change` | `Float` |  |
-| `change_percent` | `Float` |  |
+| `changePercent` | `Float` |  |
 | `currency` | `String` |  |
 | `description` | `String` |  |
-| `last_updated` | `String` |  |
+| `lastUpdated` | `String` |  |
 | `leverage` | `Hash` |  |
-| `lot_size` | `Array` |  |
-| `margin_requirement` | `Float` |  |
-| `min_spread` | `Hash` |  |
+| `lotSizes` | `Array` |  |
+| `marginRequirement` | `Float` |  |
+| `minSpread` | `Hash` |  |
 | `name` | `String` |  |
-| `quote_currency` | `String` |  |
+| `quoteCurrency` | `String` |  |
 | `spread` | `Float` |  |
 | `symbol` | `String` |  |
-| `trading_hour` | `String` |  |
+| `tradingHours` | `String` |  |
 
 #### Example: List
 

@@ -100,23 +100,23 @@ fmt.Println(marketData.GetName()) // "market_data"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `ask` | `float64` | Yes |  |
-| `base_currency` | `string` | No |  |
+| `baseCurrency` | `string` | No |  |
 | `bid` | `float64` | Yes |  |
 | `category` | `string` | Yes |  |
 | `change` | `float64` | No |  |
-| `change_percent` | `float64` | No |  |
+| `changePercent` | `float64` | No |  |
 | `currency` | `string` | Yes |  |
 | `description` | `string` | No |  |
-| `last_updated` | `string` | No |  |
+| `lastUpdated` | `string` | No |  |
 | `leverage` | `map[string]any` | No |  |
-| `lot_size` | `[]any` | No |  |
-| `margin_requirement` | `float64` | Yes |  |
-| `min_spread` | `map[string]any` | No |  |
+| `lotSizes` | `[]any` | No |  |
+| `marginRequirement` | `float64` | Yes |  |
+| `minSpread` | `map[string]any` | No |  |
 | `name` | `string` | Yes |  |
-| `quote_currency` | `string` | No |  |
+| `quoteCurrency` | `string` | No |  |
 | `spread` | `float64` | No |  |
 | `symbol` | `string` | Yes |  |
-| `trading_hour` | `string` | No |  |
+| `tradingHours` | `string` | No |  |
 
 ### Operations
 

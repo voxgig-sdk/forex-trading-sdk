@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ ForexTradingUtility.registrar = ->(u) {
   u.prepare_params = ForexTradingUtilities::PrepareParams
   u.prepare_path = ForexTradingUtilities::PreparePath
   u.prepare_query = ForexTradingUtilities::PrepareQuery
+  u.graphql_body = ForexTradingUtilities::GraphqlBody
+  u.graphql_errors = ForexTradingUtilities::GraphqlErrors
   u.result_basic = ForexTradingUtilities::ResultBasic
   u.result_body = ForexTradingUtilities::ResultBody
   u.result_headers = ForexTradingUtilities::ResultHeaders

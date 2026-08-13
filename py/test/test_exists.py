@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# ForexTrading SDK exists test
 
 import pytest
 from forextrading_sdk import ForexTradingSDK

@@ -118,23 +118,23 @@ const market_data = client.MarketData()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `ask` | `number` | Yes |  |
-| `base_currency` | `string` | No |  |
+| `baseCurrency` | `string` | No |  |
 | `bid` | `number` | Yes |  |
 | `category` | `string` | Yes |  |
 | `change` | `number` | No |  |
-| `change_percent` | `number` | No |  |
+| `changePercent` | `number` | No |  |
 | `currency` | `string` | Yes |  |
 | `description` | `string` | No |  |
-| `last_updated` | `string` | No |  |
+| `lastUpdated` | `string` | No |  |
 | `leverage` | `Record<string, any>` | No |  |
-| `lot_size` | `any[]` | No |  |
-| `margin_requirement` | `number` | Yes |  |
-| `min_spread` | `Record<string, any>` | No |  |
+| `lotSizes` | `any[]` | No |  |
+| `marginRequirement` | `number` | Yes |  |
+| `minSpread` | `Record<string, any>` | No |  |
 | `name` | `string` | Yes |  |
-| `quote_currency` | `string` | No |  |
+| `quoteCurrency` | `string` | No |  |
 | `spread` | `number` | No |  |
 | `symbol` | `string` | Yes |  |
-| `trading_hour` | `string` | No |  |
+| `tradingHours` | `string` | No |  |
 
 ### Operations
 

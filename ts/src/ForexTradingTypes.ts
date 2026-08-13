@@ -7,43 +7,43 @@
 
 export interface MarketData {
   ask: number
-  base_currency?: string
+  baseCurrency?: string
   bid: number
   category: string
   change?: number
-  change_percent?: number
+  changePercent?: number
   currency: string
   description?: string
-  last_updated?: string
+  lastUpdated?: string
   leverage?: Record<string, any>
-  lot_size?: any[]
-  margin_requirement: number
-  min_spread?: Record<string, any>
+  lotSizes?: any[]
+  marginRequirement: number
+  minSpread?: Record<string, any>
   name: string
-  quote_currency?: string
+  quoteCurrency?: string
   spread?: number
   symbol: string
-  trading_hour?: string
+  tradingHours?: string
 }
 
 export interface MarketDataListMatch {
   ask?: number
-  base_currency?: string
+  baseCurrency?: string
   bid?: number
   category?: string
   change?: number
-  change_percent?: number
+  changePercent?: number
   currency?: string
   description?: string
-  last_updated?: string
+  lastUpdated?: string
   leverage?: Record<string, any>
-  lot_size?: any[]
-  margin_requirement?: number
-  min_spread?: Record<string, any>
+  lotSizes?: any[]
+  marginRequirement?: number
+  minSpread?: Record<string, any>
   name?: string
-  quote_currency?: string
+  quoteCurrency?: string
   spread?: number
   symbol?: string
-  trading_hour?: string
+  tradingHours?: string
 }
 

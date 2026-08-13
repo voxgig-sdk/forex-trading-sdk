@@ -23,8 +23,8 @@ module ForexTradingTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("FOREXTRADING_TEST_LIVE")
-    override = getenv("FOREXTRADING_TEST_OVERRIDE")
+    live = getenv("FOREX_TRADING_TEST_LIVE")
+    override = getenv("FOREX_TRADING_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module ForexTradingTestRunner
       end
     end
 
-    explain = getenv("FOREXTRADING_TEST_EXPLAIN")
-    m["FOREXTRADING_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("FOREX_TRADING_TEST_EXPLAIN")
+    m["FOREX_TRADING_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

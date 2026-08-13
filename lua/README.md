@@ -45,7 +45,7 @@ local marketdatas, err = client:MarketData():list()
 if err then error(err) end
 
 for _, item in ipairs(marketdatas) do
-  print(item["base_currency"])
+  print(item["baseCurrency"])
 end
 ```
 
@@ -222,9 +222,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local market_data, err = client:MarketData():load()
+    local market_data, err = client:MarketData():list()
     if err then error(err) end
-    -- market_data is the loaded record
+    -- market_data is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -236,23 +236,23 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | Field | Description |
 | --- | --- |
 | `ask` |  |
-| `base_currency` |  |
+| `baseCurrency` |  |
 | `bid` |  |
 | `category` |  |
 | `change` |  |
-| `change_percent` |  |
+| `changePercent` |  |
 | `currency` |  |
 | `description` |  |
-| `last_updated` |  |
+| `lastUpdated` |  |
 | `leverage` |  |
-| `lot_size` |  |
-| `margin_requirement` |  |
-| `min_spread` |  |
+| `lotSizes` |  |
+| `marginRequirement` |  |
+| `minSpread` |  |
 | `name` |  |
-| `quote_currency` |  |
+| `quoteCurrency` |  |
 | `spread` |  |
 | `symbol` |  |
-| `trading_hour` |  |
+| `tradingHours` |  |
 
 Operations: List.
 
@@ -278,23 +278,23 @@ Create an instance: `local market_data = client:MarketData(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `ask` | `number` |  |
-| `base_currency` | `string` |  |
+| `baseCurrency` | `string` |  |
 | `bid` | `number` |  |
 | `category` | `string` |  |
 | `change` | `number` |  |
-| `change_percent` | `number` |  |
+| `changePercent` | `number` |  |
 | `currency` | `string` |  |
 | `description` | `string` |  |
-| `last_updated` | `string` |  |
+| `lastUpdated` | `string` |  |
 | `leverage` | `table` |  |
-| `lot_size` | `table` |  |
-| `margin_requirement` | `number` |  |
-| `min_spread` | `table` |  |
+| `lotSizes` | `table` |  |
+| `marginRequirement` | `number` |  |
+| `minSpread` | `table` |  |
 | `name` | `string` |  |
-| `quote_currency` | `string` |  |
+| `quoteCurrency` | `string` |  |
 | `spread` | `number` |  |
 | `symbol` | `string` |  |
-| `trading_hour` | `string` |  |
+| `tradingHours` | `string` |  |
 
 #### Example: List
 

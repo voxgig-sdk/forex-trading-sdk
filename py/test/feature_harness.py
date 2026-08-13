@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import ForexTradingControl
-from core.error import ForexTradingError
-from core.result import ForexTradingResult
-from core.spec import ForexTradingSpec
+from forextrading_sdk.config import make_config
+from forextrading_sdk.features import _make_feature
+from forextrading_sdk.core.control import ForexTradingControl
+from forextrading_sdk.core.error import ForexTradingError
+from forextrading_sdk.core.result import ForexTradingResult
+from forextrading_sdk.core.spec import ForexTradingSpec
 
 
 # True when this SDK was generated with the named feature.

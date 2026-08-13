@@ -37,7 +37,9 @@ const client = new ForexTradingSDK({
 
 ### 2. List marketdata records
 
-`list()` resolves to an array of MarketData objects — iterate it directly:
+`list()` resolves to an array of MarketData ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const marketdatas = await client.MarketData().list()
@@ -122,7 +124,8 @@ Create a mock client for unit testing — no server required:
 const client = ForexTradingSDK.test()
 
 const marketdata = await client.MarketData().list()
-// marketdata is a bare entity populated with mock response data
+// marketdata is the entity, populated with mock response data
+// — call marketdata.data() for the record itself
 console.log(marketdata)
 ```
 
@@ -291,23 +294,23 @@ The `prepare()` method returns:
 | Field | Description |
 | --- | --- |
 | `ask` |  |
-| `base_currency` |  |
+| `baseCurrency` |  |
 | `bid` |  |
 | `category` |  |
 | `change` |  |
-| `change_percent` |  |
+| `changePercent` |  |
 | `currency` |  |
 | `description` |  |
-| `last_updated` |  |
+| `lastUpdated` |  |
 | `leverage` |  |
-| `lot_size` |  |
-| `margin_requirement` |  |
-| `min_spread` |  |
+| `lotSizes` |  |
+| `marginRequirement` |  |
+| `minSpread` |  |
 | `name` |  |
-| `quote_currency` |  |
+| `quoteCurrency` |  |
 | `spread` |  |
 | `symbol` |  |
-| `trading_hour` |  |
+| `tradingHours` |  |
 
 Operations: list.
 
@@ -333,23 +336,23 @@ Create an instance: `const market_data = client.MarketData()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `ask` | `number` |  |
-| `base_currency` | `string` |  |
+| `baseCurrency` | `string` |  |
 | `bid` | `number` |  |
 | `category` | `string` |  |
 | `change` | `number` |  |
-| `change_percent` | `number` |  |
+| `changePercent` | `number` |  |
 | `currency` | `string` |  |
 | `description` | `string` |  |
-| `last_updated` | `string` |  |
+| `lastUpdated` | `string` |  |
 | `leverage` | `Record<string, any>` |  |
-| `lot_size` | `any[]` |  |
-| `margin_requirement` | `number` |  |
-| `min_spread` | `Record<string, any>` |  |
+| `lotSizes` | `any[]` |  |
+| `marginRequirement` | `number` |  |
+| `minSpread` | `Record<string, any>` |  |
 | `name` | `string` |  |
-| `quote_currency` | `string` |  |
+| `quoteCurrency` | `string` |  |
 | `spread` | `number` |  |
 | `symbol` | `string` |  |
-| `trading_hour` | `string` |  |
+| `tradingHours` | `string` |  |
 
 #### Example: List
 

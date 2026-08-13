@@ -13,7 +13,7 @@
 # @!attribute [rw] ask
 #   @return [Float]
 #
-# @!attribute [rw] base_currency
+# @!attribute [rw] baseCurrency
 #   @return [String, nil]
 #
 # @!attribute [rw] bid
@@ -25,7 +25,7 @@
 # @!attribute [rw] change
 #   @return [Float, nil]
 #
-# @!attribute [rw] change_percent
+# @!attribute [rw] changePercent
 #   @return [Float, nil]
 #
 # @!attribute [rw] currency
@@ -34,25 +34,25 @@
 # @!attribute [rw] description
 #   @return [String, nil]
 #
-# @!attribute [rw] last_updated
+# @!attribute [rw] lastUpdated
 #   @return [String, nil]
 #
 # @!attribute [rw] leverage
 #   @return [Hash, nil]
 #
-# @!attribute [rw] lot_size
+# @!attribute [rw] lotSizes
 #   @return [Array, nil]
 #
-# @!attribute [rw] margin_requirement
+# @!attribute [rw] marginRequirement
 #   @return [Float]
 #
-# @!attribute [rw] min_spread
+# @!attribute [rw] minSpread
 #   @return [Hash, nil]
 #
 # @!attribute [rw] name
 #   @return [String]
 #
-# @!attribute [rw] quote_currency
+# @!attribute [rw] quoteCurrency
 #   @return [String, nil]
 #
 # @!attribute [rw] spread
@@ -61,27 +61,27 @@
 # @!attribute [rw] symbol
 #   @return [String]
 #
-# @!attribute [rw] trading_hour
+# @!attribute [rw] tradingHours
 #   @return [String, nil]
 MarketData = Struct.new(
   :ask,
-  :base_currency,
+  :baseCurrency,
   :bid,
   :category,
   :change,
-  :change_percent,
+  :changePercent,
   :currency,
   :description,
-  :last_updated,
+  :lastUpdated,
   :leverage,
-  :lot_size,
-  :margin_requirement,
-  :min_spread,
+  :lotSizes,
+  :marginRequirement,
+  :minSpread,
   :name,
-  :quote_currency,
+  :quoteCurrency,
   :spread,
   :symbol,
-  :trading_hour,
+  :tradingHours,
   keyword_init: true
 )
 
@@ -90,7 +90,7 @@ MarketData = Struct.new(
 # @!attribute [rw] ask
 #   @return [Float, nil]
 #
-# @!attribute [rw] base_currency
+# @!attribute [rw] baseCurrency
 #   @return [String, nil]
 #
 # @!attribute [rw] bid
@@ -102,7 +102,7 @@ MarketData = Struct.new(
 # @!attribute [rw] change
 #   @return [Float, nil]
 #
-# @!attribute [rw] change_percent
+# @!attribute [rw] changePercent
 #   @return [Float, nil]
 #
 # @!attribute [rw] currency
@@ -111,25 +111,25 @@ MarketData = Struct.new(
 # @!attribute [rw] description
 #   @return [String, nil]
 #
-# @!attribute [rw] last_updated
+# @!attribute [rw] lastUpdated
 #   @return [String, nil]
 #
 # @!attribute [rw] leverage
 #   @return [Hash, nil]
 #
-# @!attribute [rw] lot_size
+# @!attribute [rw] lotSizes
 #   @return [Array, nil]
 #
-# @!attribute [rw] margin_requirement
+# @!attribute [rw] marginRequirement
 #   @return [Float, nil]
 #
-# @!attribute [rw] min_spread
+# @!attribute [rw] minSpread
 #   @return [Hash, nil]
 #
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] quote_currency
+# @!attribute [rw] quoteCurrency
 #   @return [String, nil]
 #
 # @!attribute [rw] spread
@@ -138,27 +138,27 @@ MarketData = Struct.new(
 # @!attribute [rw] symbol
 #   @return [String, nil]
 #
-# @!attribute [rw] trading_hour
+# @!attribute [rw] tradingHours
 #   @return [String, nil]
 MarketDataListMatch = Struct.new(
   :ask,
-  :base_currency,
+  :baseCurrency,
   :bid,
   :category,
   :change,
-  :change_percent,
+  :changePercent,
   :currency,
   :description,
-  :last_updated,
+  :lastUpdated,
   :leverage,
-  :lot_size,
-  :margin_requirement,
-  :min_spread,
+  :lotSizes,
+  :marginRequirement,
+  :minSpread,
   :name,
-  :quote_currency,
+  :quoteCurrency,
   :spread,
   :symbol,
-  :trading_hour,
+  :tradingHours,
   keyword_init: true
 )
 

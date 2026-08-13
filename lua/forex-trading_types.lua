@@ -8,43 +8,43 @@
 
 ---@class MarketData
 ---@field ask number
----@field base_currency? string
+---@field baseCurrency? string
 ---@field bid number
 ---@field category string
 ---@field change? number
----@field change_percent? number
+---@field changePercent? number
 ---@field currency string
 ---@field description? string
----@field last_updated? string
+---@field lastUpdated? string
 ---@field leverage? table
----@field lot_size? table
----@field margin_requirement number
----@field min_spread? table
+---@field lotSizes? table
+---@field marginRequirement number
+---@field minSpread? table
 ---@field name string
----@field quote_currency? string
+---@field quoteCurrency? string
 ---@field spread? number
 ---@field symbol string
----@field trading_hour? string
+---@field tradingHours? string
 
 ---@class MarketDataListMatch
 ---@field ask? number
----@field base_currency? string
+---@field baseCurrency? string
 ---@field bid? number
 ---@field category? string
 ---@field change? number
----@field change_percent? number
+---@field changePercent? number
 ---@field currency? string
 ---@field description? string
----@field last_updated? string
+---@field lastUpdated? string
 ---@field leverage? table
----@field lot_size? table
----@field margin_requirement? number
----@field min_spread? table
+---@field lotSizes? table
+---@field marginRequirement? number
+---@field minSpread? table
 ---@field name? string
----@field quote_currency? string
+---@field quoteCurrency? string
 ---@field spread? number
 ---@field symbol? string
----@field trading_hour? string
+---@field tradingHours? string
 
 local M = {}
 

@@ -94,23 +94,23 @@ $market_data = $client->MarketData();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `ask` | `float` | Yes |  |
-| `base_currency` | `string` | No |  |
+| `baseCurrency` | `string` | No |  |
 | `bid` | `float` | Yes |  |
 | `category` | `string` | Yes |  |
 | `change` | `float` | No |  |
-| `change_percent` | `float` | No |  |
+| `changePercent` | `float` | No |  |
 | `currency` | `string` | Yes |  |
 | `description` | `string` | No |  |
-| `last_updated` | `string` | No |  |
+| `lastUpdated` | `string` | No |  |
 | `leverage` | `array` | No |  |
-| `lot_size` | `array` | No |  |
-| `margin_requirement` | `float` | Yes |  |
-| `min_spread` | `array` | No |  |
+| `lotSizes` | `array` | No |  |
+| `marginRequirement` | `float` | Yes |  |
+| `minSpread` | `array` | No |  |
 | `name` | `string` | Yes |  |
-| `quote_currency` | `string` | No |  |
+| `quoteCurrency` | `string` | No |  |
 | `spread` | `float` | No |  |
 | `symbol` | `string` | Yes |  |
-| `trading_hour` | `string` | No |  |
+| `tradingHours` | `string` | No |  |
 
 ### Operations
 

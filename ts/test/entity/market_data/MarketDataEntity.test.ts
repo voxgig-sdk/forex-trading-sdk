@@ -26,8 +26,8 @@ import {
 describe('MarketDataEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when FOREXTRADING_TEST_LIVE=TRUE.
-  afterEach(liveDelay('FOREXTRADING_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when FOREX_TRADING_TEST_LIVE=TRUE.
+  afterEach(liveDelay('FOREX_TRADING_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = ForexTradingSDK.test()
@@ -63,7 +63,7 @@ describe('MarketDataEntity', async () => {
     const market_data_ref01_ent = client.MarketData()
     const market_data_ref01_match: any = {}
 
-    const market_data_ref01_list = await market_data_ref01_ent.list(market_data_ref01_match)
+    const market_data_ref01_list = (await market_data_ref01_ent.list(market_data_ref01_match)).map((e: any) => e.data())
 
 
   })

@@ -37,7 +37,7 @@ class MarketDataEntity extends ForexTradingEntityBase<MarketData> {
 
 
 
-  async list(this: any, reqmatch?: MarketDataListMatch, ctrl?: Control): Promise<MarketData[]> {
+  async list(this: any, reqmatch?: MarketDataListMatch, ctrl?: Control): Promise<MarketDataEntity[]> {
 
     const utility = this._utility
 

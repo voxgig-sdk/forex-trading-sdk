@@ -89,23 +89,23 @@ market_data = client.MarketData()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `ask` | `float` | Yes |  |
-| `base_currency` | `str` | No |  |
+| `baseCurrency` | `str` | No |  |
 | `bid` | `float` | Yes |  |
 | `category` | `str` | Yes |  |
 | `change` | `float` | No |  |
-| `change_percent` | `float` | No |  |
+| `changePercent` | `float` | No |  |
 | `currency` | `str` | Yes |  |
 | `description` | `str` | No |  |
-| `last_updated` | `str` | No |  |
+| `lastUpdated` | `str` | No |  |
 | `leverage` | `dict` | No |  |
-| `lot_size` | `list` | No |  |
-| `margin_requirement` | `float` | Yes |  |
-| `min_spread` | `dict` | No |  |
+| `lotSizes` | `list` | No |  |
+| `marginRequirement` | `float` | Yes |  |
+| `minSpread` | `dict` | No |  |
 | `name` | `str` | Yes |  |
-| `quote_currency` | `str` | No |  |
+| `quoteCurrency` | `str` | No |  |
 | `spread` | `float` | No |  |
 | `symbol` | `str` | Yes |  |
-| `trading_hour` | `str` | No |  |
+| `tradingHours` | `str` | No |  |
 
 ### Operations
 

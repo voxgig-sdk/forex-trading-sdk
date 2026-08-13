@@ -11,7 +11,7 @@ main: kit: entity: market_data: {
       type: "`$NUMBER`"
     }
     {
-      name: "base_currency"
+      name: "baseCurrency"
       req: false
       type: "`$STRING`"
     }
@@ -31,7 +31,7 @@ main: kit: entity: market_data: {
       type: "`$NUMBER`"
     }
     {
-      name: "change_percent"
+      name: "changePercent"
       req: false
       type: "`$NUMBER`"
     }
@@ -46,7 +46,7 @@ main: kit: entity: market_data: {
       type: "`$STRING`"
     }
     {
-      name: "last_updated"
+      name: "lastUpdated"
       req: false
       type: "`$STRING`"
     }
@@ -56,17 +56,17 @@ main: kit: entity: market_data: {
       type: "`$OBJECT`"
     }
     {
-      name: "lot_size"
+      name: "lotSizes"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "margin_requirement"
+      name: "marginRequirement"
       req: true
       type: "`$NUMBER`"
     }
     {
-      name: "min_spread"
+      name: "minSpread"
       req: false
       type: "`$OBJECT`"
     }
@@ -76,7 +76,7 @@ main: kit: entity: market_data: {
       type: "`$STRING`"
     }
     {
-      name: "quote_currency"
+      name: "quoteCurrency"
       req: false
       type: "`$STRING`"
     }
@@ -91,7 +91,7 @@ main: kit: entity: market_data: {
       type: "`$STRING`"
     }
     {
-      name: "trading_hour"
+      name: "tradingHours"
       req: false
       type: "`$STRING`"
     }
@@ -136,7 +136,7 @@ main: kit: entity: market_data: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.instruments`"
           }
         }
         {
@@ -173,7 +173,7 @@ main: kit: entity: market_data: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.quotes`"
           }
         }
       ]

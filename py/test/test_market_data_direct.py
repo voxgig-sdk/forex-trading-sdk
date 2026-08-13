@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from forextrading_sdk.utility.voxgig_struct import voxgig_struct as vs
 from forextrading_sdk import ForexTradingSDK
-from core import helpers
+from forextrading_sdk.core import helpers
 from test import runner
 
 
@@ -58,16 +58,16 @@ def _market_data_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "FOREXTRADING_TEST_MARKET_DATA_ENTID": {},
-        "FOREXTRADING_TEST_LIVE": "FALSE",
-        "FOREXTRADING_APIKEY": "NONE",
+        "FOREX_TRADING_TEST_MARKET_DATA_ENTID": {},
+        "FOREX_TRADING_TEST_LIVE": "FALSE",
+        "FOREX_TRADING_APIKEY": "NONE",
     })
 
-    live = env.get("FOREXTRADING_TEST_LIVE") == "TRUE"
+    live = env.get("FOREX_TRADING_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("FOREXTRADING_APIKEY"),
+            "apikey": env.get("FOREX_TRADING_APIKEY"),
         }
         client = ForexTradingSDK(merged_opts)
         return {

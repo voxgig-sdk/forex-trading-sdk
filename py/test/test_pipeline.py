@@ -16,11 +16,11 @@
 import pytest
 
 from forextrading_sdk import ForexTradingSDK
-from core.error import ForexTradingError
-from core.result import ForexTradingResult
-from core.response import ForexTradingResponse
-from core.spec import ForexTradingSpec
-from feature.base_feature import ForexTradingBaseFeature
+from forextrading_sdk.core.error import ForexTradingError
+from forextrading_sdk.core.result import ForexTradingResult
+from forextrading_sdk.core.response import ForexTradingResponse
+from forextrading_sdk.core.spec import ForexTradingSpec
+from forextrading_sdk.feature.base_feature import ForexTradingBaseFeature
 
 
 def _client():

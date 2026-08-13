@@ -42,7 +42,7 @@ class ForexTradingConfig
             ],
             [
               'active' => true,
-              'name' => 'base_currency',
+              'name' => 'baseCurrency',
               'req' => false,
               'type' => '`$STRING`',
               'index$' => 1,
@@ -70,7 +70,7 @@ class ForexTradingConfig
             ],
             [
               'active' => true,
-              'name' => 'change_percent',
+              'name' => 'changePercent',
               'req' => false,
               'type' => '`$NUMBER`',
               'index$' => 5,
@@ -91,7 +91,7 @@ class ForexTradingConfig
             ],
             [
               'active' => true,
-              'name' => 'last_updated',
+              'name' => 'lastUpdated',
               'req' => false,
               'type' => '`$STRING`',
               'index$' => 8,
@@ -105,21 +105,21 @@ class ForexTradingConfig
             ],
             [
               'active' => true,
-              'name' => 'lot_size',
+              'name' => 'lotSizes',
               'req' => false,
               'type' => '`$ARRAY`',
               'index$' => 10,
             ],
             [
               'active' => true,
-              'name' => 'margin_requirement',
+              'name' => 'marginRequirement',
               'req' => true,
               'type' => '`$NUMBER`',
               'index$' => 11,
             ],
             [
               'active' => true,
-              'name' => 'min_spread',
+              'name' => 'minSpread',
               'req' => false,
               'type' => '`$OBJECT`',
               'index$' => 12,
@@ -133,7 +133,7 @@ class ForexTradingConfig
             ],
             [
               'active' => true,
-              'name' => 'quote_currency',
+              'name' => 'quoteCurrency',
               'req' => false,
               'type' => '`$STRING`',
               'index$' => 14,
@@ -154,7 +154,7 @@ class ForexTradingConfig
             ],
             [
               'active' => true,
-              'name' => 'trading_hour',
+              'name' => 'tradingHours',
               'req' => false,
               'type' => '`$STRING`',
               'index$' => 17,
@@ -190,6 +190,7 @@ class ForexTradingConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/instruments',
                   'parts' => [
@@ -203,7 +204,7 @@ class ForexTradingConfig
                   ],
                   'transform' => [
                     'req' => '`reqdata`',
-                    'res' => '`body`',
+                    'res' => '`body.instruments`',
                   ],
                   'index$' => 0,
                 ],
@@ -231,6 +232,7 @@ class ForexTradingConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/quotes',
                   'parts' => [
@@ -244,7 +246,7 @@ class ForexTradingConfig
                   ],
                   'transform' => [
                     'req' => '`reqdata`',
-                    'res' => '`body`',
+                    'res' => '`body.quotes`',
                   ],
                   'index$' => 1,
                 ],

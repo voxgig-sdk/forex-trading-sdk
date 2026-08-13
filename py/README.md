@@ -127,7 +127,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = ForexTradingSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 marketdata = client.MarketData().list()
 # marketdata contains the mock response record
 ```
@@ -225,7 +226,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -248,23 +249,23 @@ On error, `ok` is `False` and `err` contains the error value.
 | Field | Description |
 | --- | --- |
 | `ask` |  |
-| `base_currency` |  |
+| `baseCurrency` |  |
 | `bid` |  |
 | `category` |  |
 | `change` |  |
-| `change_percent` |  |
+| `changePercent` |  |
 | `currency` |  |
 | `description` |  |
-| `last_updated` |  |
+| `lastUpdated` |  |
 | `leverage` |  |
-| `lot_size` |  |
-| `margin_requirement` |  |
-| `min_spread` |  |
+| `lotSizes` |  |
+| `marginRequirement` |  |
+| `minSpread` |  |
 | `name` |  |
-| `quote_currency` |  |
+| `quoteCurrency` |  |
 | `spread` |  |
 | `symbol` |  |
-| `trading_hour` |  |
+| `tradingHours` |  |
 
 Operations: List.
 
@@ -290,23 +291,23 @@ Create an instance: `market_data = client.MarketData()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `ask` | `float` |  |
-| `base_currency` | `str` |  |
+| `baseCurrency` | `str` |  |
 | `bid` | `float` |  |
 | `category` | `str` |  |
 | `change` | `float` |  |
-| `change_percent` | `float` |  |
+| `changePercent` | `float` |  |
 | `currency` | `str` |  |
 | `description` | `str` |  |
-| `last_updated` | `str` |  |
+| `lastUpdated` | `str` |  |
 | `leverage` | `dict` |  |
-| `lot_size` | `list` |  |
-| `margin_requirement` | `float` |  |
-| `min_spread` | `dict` |  |
+| `lotSizes` | `list` |  |
+| `marginRequirement` | `float` |  |
+| `minSpread` | `dict` |  |
 | `name` | `str` |  |
-| `quote_currency` | `str` |  |
+| `quoteCurrency` | `str` |  |
 | `spread` | `float` |  |
 | `symbol` | `str` |  |
-| `trading_hour` | `str` |  |
+| `tradingHours` | `str` |  |
 
 #### Example: List
 

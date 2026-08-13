@@ -92,23 +92,23 @@ local market_data = client:MarketData(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `ask` | `number` | Yes |  |
-| `base_currency` | `string` | No |  |
+| `baseCurrency` | `string` | No |  |
 | `bid` | `number` | Yes |  |
 | `category` | `string` | Yes |  |
 | `change` | `number` | No |  |
-| `change_percent` | `number` | No |  |
+| `changePercent` | `number` | No |  |
 | `currency` | `string` | Yes |  |
 | `description` | `string` | No |  |
-| `last_updated` | `string` | No |  |
+| `lastUpdated` | `string` | No |  |
 | `leverage` | `table` | No |  |
-| `lot_size` | `table` | No |  |
-| `margin_requirement` | `number` | Yes |  |
-| `min_spread` | `table` | No |  |
+| `lotSizes` | `table` | No |  |
+| `marginRequirement` | `number` | Yes |  |
+| `minSpread` | `table` | No |  |
 | `name` | `string` | Yes |  |
-| `quote_currency` | `string` | No |  |
+| `quoteCurrency` | `string` | No |  |
 | `spread` | `number` | No |  |
 | `symbol` | `string` | Yes |  |
-| `trading_hour` | `string` | No |  |
+| `tradingHours` | `string` | No |  |
 
 ### Operations
 

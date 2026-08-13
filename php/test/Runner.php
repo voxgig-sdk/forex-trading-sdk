@@ -43,8 +43,8 @@ class ForexTradingTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('FOREXTRADING_TEST_LIVE');
-        $override = self::getenv('FOREXTRADING_TEST_OVERRIDE');
+        $live = self::getenv('FOREX_TRADING_TEST_LIVE');
+        $override = self::getenv('FOREX_TRADING_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class ForexTradingTestRunner
             }
         }
 
-        $explain = self::getenv('FOREXTRADING_TEST_EXPLAIN');
+        $explain = self::getenv('FOREX_TRADING_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['FOREXTRADING_TEST_EXPLAIN'] = $explain;
+            $m['FOREX_TRADING_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

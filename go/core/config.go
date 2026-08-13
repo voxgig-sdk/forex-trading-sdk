@@ -36,7 +36,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "base_currency",
+						"name": "baseCurrency",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 1,
@@ -64,7 +64,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "change_percent",
+						"name": "changePercent",
 						"req": false,
 						"type": "`$NUMBER`",
 						"index$": 5,
@@ -85,7 +85,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "last_updated",
+						"name": "lastUpdated",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 8,
@@ -99,21 +99,21 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "lot_size",
+						"name": "lotSizes",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 10,
 					},
 					map[string]any{
 						"active": true,
-						"name": "margin_requirement",
+						"name": "marginRequirement",
 						"req": true,
 						"type": "`$NUMBER`",
 						"index$": 11,
 					},
 					map[string]any{
 						"active": true,
-						"name": "min_spread",
+						"name": "minSpread",
 						"req": false,
 						"type": "`$OBJECT`",
 						"index$": 12,
@@ -127,7 +127,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "quote_currency",
+						"name": "quoteCurrency",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 14,
@@ -148,7 +148,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "trading_hour",
+						"name": "tradingHours",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 17,
@@ -184,6 +184,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/instruments",
 								"parts": []any{
@@ -197,7 +198,7 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.instruments`",
 								},
 								"index$": 0,
 							},
@@ -225,6 +226,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/quotes",
 								"parts": []any{
@@ -238,12 +240,11 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.quotes`",
 								},
 								"index$": 1,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{

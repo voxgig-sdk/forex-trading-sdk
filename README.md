@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = ForexTradingSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = ForexTradingSDK.test({
+  entity: {
+    market_data: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const marketdatas = await client.MarketData().list()
-// marketdatas is an array of bare MarketData records populated with mock data
+// marketdatas is an array of MarketData entities, populated with mock data
+// — call marketdatas[0].data() for the record itself
 console.log(marketdatas)
 ```
 
@@ -112,7 +121,7 @@ const client = new ForexTradingSDK({
   apikey: process.env.FOREX_TRADING_APIKEY,
 })
 
-// List all marketdatas (returns MarketData[])
+// List all marketdatas (returns MarketDataEntity[] — .data() for the record)
 const marketdatas = await client.MarketData().list()
 for (const marketdata of marketdatas) {
   console.log(marketdata)
@@ -356,6 +365,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://www.swissquote.com/en-ch/private/trade/products/forex](https://www.swissquote.com/en-ch/private/trade/products/forex)
 

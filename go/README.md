@@ -266,23 +266,23 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | Field | Description |
 | --- | --- |
 | `"ask"` |  |
-| `"base_currency"` |  |
+| `"baseCurrency"` |  |
 | `"bid"` |  |
 | `"category"` |  |
 | `"change"` |  |
-| `"change_percent"` |  |
+| `"changePercent"` |  |
 | `"currency"` |  |
 | `"description"` |  |
-| `"last_updated"` |  |
+| `"lastUpdated"` |  |
 | `"leverage"` |  |
-| `"lot_size"` |  |
-| `"margin_requirement"` |  |
-| `"min_spread"` |  |
+| `"lotSizes"` |  |
+| `"marginRequirement"` |  |
+| `"minSpread"` |  |
 | `"name"` |  |
-| `"quote_currency"` |  |
+| `"quoteCurrency"` |  |
 | `"spread"` |  |
 | `"symbol"` |  |
-| `"trading_hour"` |  |
+| `"tradingHours"` |  |
 
 Operations: List.
 
@@ -308,23 +308,23 @@ Create an instance: `marketData := client.MarketData(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `ask` | `float64` |  |
-| `base_currency` | `string` |  |
+| `baseCurrency` | `string` |  |
 | `bid` | `float64` |  |
 | `category` | `string` |  |
 | `change` | `float64` |  |
-| `change_percent` | `float64` |  |
+| `changePercent` | `float64` |  |
 | `currency` | `string` |  |
 | `description` | `string` |  |
-| `last_updated` | `string` |  |
+| `lastUpdated` | `string` |  |
 | `leverage` | `map[string]any` |  |
-| `lot_size` | `[]any` |  |
-| `margin_requirement` | `float64` |  |
-| `min_spread` | `map[string]any` |  |
+| `lotSizes` | `[]any` |  |
+| `marginRequirement` | `float64` |  |
+| `minSpread` | `map[string]any` |  |
 | `name` | `string` |  |
-| `quote_currency` | `string` |  |
+| `quoteCurrency` | `string` |  |
 | `spread` | `float64` |  |
 | `symbol` | `string` |  |
-| `trading_hour` | `string` |  |
+| `tradingHours` | `string` |  |
 
 #### Example: List
 

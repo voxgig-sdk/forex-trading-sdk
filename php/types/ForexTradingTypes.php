@@ -16,45 +16,45 @@ declare(strict_types=1);
 class MarketData
 {
     public float $ask;
-    public ?string $base_currency = null;
+    public ?string $baseCurrency = null;
     public float $bid;
     public string $category;
     public ?float $change = null;
-    public ?float $change_percent = null;
+    public ?float $changePercent = null;
     public string $currency;
     public ?string $description = null;
-    public ?string $last_updated = null;
+    public ?string $lastUpdated = null;
     public ?array $leverage = null;
-    public ?array $lot_size = null;
-    public float $margin_requirement;
-    public ?array $min_spread = null;
+    public ?array $lotSizes = null;
+    public float $marginRequirement;
+    public ?array $minSpread = null;
     public string $name;
-    public ?string $quote_currency = null;
+    public ?string $quoteCurrency = null;
     public ?float $spread = null;
     public string $symbol;
-    public ?string $trading_hour = null;
+    public ?string $tradingHours = null;
 }
 
 /** Request payload for MarketData#list. */
 class MarketDataListMatch
 {
     public ?float $ask = null;
-    public ?string $base_currency = null;
+    public ?string $baseCurrency = null;
     public ?float $bid = null;
     public ?string $category = null;
     public ?float $change = null;
-    public ?float $change_percent = null;
+    public ?float $changePercent = null;
     public ?string $currency = null;
     public ?string $description = null;
-    public ?string $last_updated = null;
+    public ?string $lastUpdated = null;
     public ?array $leverage = null;
-    public ?array $lot_size = null;
-    public ?float $margin_requirement = null;
-    public ?array $min_spread = null;
+    public ?array $lotSizes = null;
+    public ?float $marginRequirement = null;
+    public ?array $minSpread = null;
     public ?string $name = null;
-    public ?string $quote_currency = null;
+    public ?string $quoteCurrency = null;
     public ?float $spread = null;
     public ?string $symbol = null;
-    public ?string $trading_hour = null;
+    public ?string $tradingHours = null;
 }
 

@@ -8,9 +8,11 @@ guide: {
   entity: market_data: {
     path: "/instruments": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.instruments`")|top
     }
     path: "/quotes": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.quotes`")|top
     }
   }
 

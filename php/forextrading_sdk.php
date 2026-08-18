@@ -40,7 +40,7 @@ class ForexTradingSDK
         $utility = new ForexTradingUtility();
         $this->_utility = $utility;
 
-        $config = ForexTradingConfig::make_config();
+        $config = ForexTradingConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

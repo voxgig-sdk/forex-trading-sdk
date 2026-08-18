@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from forextrading_sdk.config import make_config
+from forextrading_sdk.config import shared_config
 from forextrading_sdk.features import _make_feature
 from forextrading_sdk.core.control import ForexTradingControl
 from forextrading_sdk.core.error import ForexTradingError
@@ -24,7 +24,7 @@ from forextrading_sdk.core.spec import ForexTradingSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 

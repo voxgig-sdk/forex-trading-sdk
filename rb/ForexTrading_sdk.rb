@@ -28,7 +28,7 @@ class ForexTradingSDK
     utility = ForexTradingUtility.new
     @_utility = utility
 
-    config = ForexTradingConfig.make_config
+    config = ForexTradingConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

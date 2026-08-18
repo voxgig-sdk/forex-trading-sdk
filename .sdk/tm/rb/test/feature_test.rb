@@ -15,7 +15,7 @@ require_relative "../ForexTrading_sdk"
 module ForexTradingFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = ForexTradingConfig.make_config["feature"]
+    f = ForexTradingConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

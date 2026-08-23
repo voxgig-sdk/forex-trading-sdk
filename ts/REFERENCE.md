@@ -117,24 +117,24 @@ const market_data = client.MarketData()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ask` | `number` | Yes |  |
-| `baseCurrency` | `string` | No |  |
-| `bid` | `number` | Yes |  |
-| `category` | `string` | Yes |  |
-| `change` | `number` | No |  |
-| `changePercent` | `number` | No |  |
-| `currency` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `lastUpdated` | `string` | No |  |
+| `ask` | `number` | Yes | Current ask price |
+| `baseCurrency` | `string` | No | Base currency code |
+| `bid` | `number` | Yes | Current bid price |
+| `category` | `string` | Yes | Instrument category |
+| `change` | `number` | No | Price change from previous close |
+| `changePercent` | `number` | No | Percentage change from previous close |
+| `currency` | `string` | Yes | Quote currency |
+| `description` | `string` | No | Additional information about the instrument |
+| `lastUpdated` | `string` | No | Last update timestamp |
 | `leverage` | `Record<string, any>` | No |  |
-| `lotSizes` | `any[]` | No |  |
-| `marginRequirement` | `number` | Yes |  |
-| `minSpread` | `Record<string, any>` | No |  |
-| `name` | `string` | Yes |  |
-| `quoteCurrency` | `string` | No |  |
-| `spread` | `number` | No |  |
-| `symbol` | `string` | Yes |  |
-| `tradingHours` | `string` | No |  |
+| `lotSizes` | `any[]` | No | Available lot sizes |
+| `marginRequirement` | `number` | Yes | Margin requirement percentage |
+| `minSpread` | `Record<string, any>` | No | Minimum spreads by account type (in pips or points) |
+| `name` | `string` | Yes | Full name of the instrument |
+| `quoteCurrency` | `string` | No | Quote currency code |
+| `spread` | `number` | No | Spread in pips or points |
+| `symbol` | `string` | Yes | Trading symbol |
+| `tradingHours` | `string` | No | Trading hours availability |
 
 ### Operations
 

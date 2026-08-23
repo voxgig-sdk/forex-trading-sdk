@@ -36,54 +36,63 @@
               "active": true,
               "name": "ask",
               "req": true,
+              "short": "Current ask price",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "baseCurrency",
               "req": false,
+              "short": "Base currency code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "bid",
               "req": true,
+              "short": "Current bid price",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "category",
               "req": true,
+              "short": "Instrument category",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "change",
               "req": false,
+              "short": "Price change from previous close",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "changePercent",
               "req": false,
+              "short": "Percentage change from previous close",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "currency",
               "req": true,
+              "short": "Quote currency",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Additional information about the instrument",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "lastUpdated",
               "req": false,
+              "short": "Last update timestamp",
               "type": "`$STRING`"
             },
             {
@@ -96,48 +105,56 @@
               "active": true,
               "name": "lotSizes",
               "req": false,
+              "short": "Available lot sizes",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "marginRequirement",
               "req": true,
+              "short": "Margin requirement percentage",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "minSpread",
               "req": false,
+              "short": "Minimum spreads by account type (in pips or points)",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "Full name of the instrument",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "quoteCurrency",
               "req": false,
+              "short": "Quote currency code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "spread",
               "req": false,
+              "short": "Spread in pips or points",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "symbol",
               "req": true,
+              "short": "Trading symbol",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "tradingHours",
               "req": false,
+              "short": "Trading hours availability",
               "type": "`$STRING`"
             }
           ],

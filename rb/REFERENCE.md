@@ -94,24 +94,24 @@ market_data = client.MarketData
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ask` | `Float` | Yes |  |
-| `baseCurrency` | `String` | No |  |
-| `bid` | `Float` | Yes |  |
-| `category` | `String` | Yes |  |
-| `change` | `Float` | No |  |
-| `changePercent` | `Float` | No |  |
-| `currency` | `String` | Yes |  |
-| `description` | `String` | No |  |
-| `lastUpdated` | `String` | No |  |
+| `ask` | `Float` | Yes | Current ask price |
+| `baseCurrency` | `String` | No | Base currency code |
+| `bid` | `Float` | Yes | Current bid price |
+| `category` | `String` | Yes | Instrument category |
+| `change` | `Float` | No | Price change from previous close |
+| `changePercent` | `Float` | No | Percentage change from previous close |
+| `currency` | `String` | Yes | Quote currency |
+| `description` | `String` | No | Additional information about the instrument |
+| `lastUpdated` | `String` | No | Last update timestamp |
 | `leverage` | `Hash` | No |  |
-| `lotSizes` | `Array` | No |  |
-| `marginRequirement` | `Float` | Yes |  |
-| `minSpread` | `Hash` | No |  |
-| `name` | `String` | Yes |  |
-| `quoteCurrency` | `String` | No |  |
-| `spread` | `Float` | No |  |
-| `symbol` | `String` | Yes |  |
-| `tradingHours` | `String` | No |  |
+| `lotSizes` | `Array` | No | Available lot sizes |
+| `marginRequirement` | `Float` | Yes | Margin requirement percentage |
+| `minSpread` | `Hash` | No | Minimum spreads by account type (in pips or points) |
+| `name` | `String` | Yes | Full name of the instrument |
+| `quoteCurrency` | `String` | No | Quote currency code |
+| `spread` | `Float` | No | Spread in pips or points |
+| `symbol` | `String` | Yes | Trading symbol |
+| `tradingHours` | `String` | No | Trading hours availability |
 
 ### Operations
 

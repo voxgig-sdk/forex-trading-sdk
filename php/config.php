@@ -33,6 +33,9 @@ class ForexTradingConfig
         return [
             "main" => [
                 "name" => "ForexTrading",
+                "slug" => "forex-trading",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -59,41 +62,50 @@ class ForexTradingConfig
             [
               'name' => 'ask',
               'req' => true,
+              'short' => 'Current ask price',
               'type' => '`$NUMBER`',
             ],
             [
               'name' => 'baseCurrency',
+              'short' => 'Base currency code',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'bid',
               'req' => true,
+              'short' => 'Current bid price',
               'type' => '`$NUMBER`',
             ],
             [
               'name' => 'category',
               'req' => true,
+              'short' => 'Instrument category',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'change',
+              'short' => 'Price change from previous close',
               'type' => '`$NUMBER`',
             ],
             [
               'name' => 'changePercent',
+              'short' => 'Percentage change from previous close',
               'type' => '`$NUMBER`',
             ],
             [
               'name' => 'currency',
               'req' => true,
+              'short' => 'Quote currency',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'description',
+              'short' => 'Additional information about the instrument',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'lastUpdated',
+              'short' => 'Last update timestamp',
               'type' => '`$STRING`',
             ],
             [
@@ -102,37 +114,45 @@ class ForexTradingConfig
             ],
             [
               'name' => 'lotSizes',
+              'short' => 'Available lot sizes',
               'type' => '`$ARRAY`',
             ],
             [
               'name' => 'marginRequirement',
               'req' => true,
+              'short' => 'Margin requirement percentage',
               'type' => '`$NUMBER`',
             ],
             [
               'name' => 'minSpread',
+              'short' => 'Minimum spreads by account type (in pips or points)',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'name',
               'req' => true,
+              'short' => 'Full name of the instrument',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'quoteCurrency',
+              'short' => 'Quote currency code',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'spread',
+              'short' => 'Spread in pips or points',
               'type' => '`$NUMBER`',
             ],
             [
               'name' => 'symbol',
               'req' => true,
+              'short' => 'Trading symbol',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'tradingHours',
+              'short' => 'Trading hours availability',
               'type' => '`$STRING`',
             ],
           ],

@@ -235,24 +235,24 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `ask` |  |
-| `baseCurrency` |  |
-| `bid` |  |
-| `category` |  |
-| `change` |  |
-| `changePercent` |  |
-| `currency` |  |
-| `description` |  |
-| `lastUpdated` |  |
+| `ask` | Current ask price |
+| `baseCurrency` | Base currency code |
+| `bid` | Current bid price |
+| `category` | Instrument category |
+| `change` | Price change from previous close |
+| `changePercent` | Percentage change from previous close |
+| `currency` | Quote currency |
+| `description` | Additional information about the instrument |
+| `lastUpdated` | Last update timestamp |
 | `leverage` |  |
-| `lotSizes` |  |
-| `marginRequirement` |  |
-| `minSpread` |  |
-| `name` |  |
-| `quoteCurrency` |  |
-| `spread` |  |
-| `symbol` |  |
-| `tradingHours` |  |
+| `lotSizes` | Available lot sizes |
+| `marginRequirement` | Margin requirement percentage |
+| `minSpread` | Minimum spreads by account type (in pips or points) |
+| `name` | Full name of the instrument |
+| `quoteCurrency` | Quote currency code |
+| `spread` | Spread in pips or points |
+| `symbol` | Trading symbol |
+| `tradingHours` | Trading hours availability |
 
 Operations: List.
 
@@ -277,24 +277,24 @@ Create an instance: `local market_data = client:MarketData(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ask` | `number` |  |
-| `baseCurrency` | `string` |  |
-| `bid` | `number` |  |
-| `category` | `string` |  |
-| `change` | `number` |  |
-| `changePercent` | `number` |  |
-| `currency` | `string` |  |
-| `description` | `string` |  |
-| `lastUpdated` | `string` |  |
+| `ask` | `number` | Current ask price |
+| `baseCurrency` | `string` | Base currency code |
+| `bid` | `number` | Current bid price |
+| `category` | `string` | Instrument category |
+| `change` | `number` | Price change from previous close |
+| `changePercent` | `number` | Percentage change from previous close |
+| `currency` | `string` | Quote currency |
+| `description` | `string` | Additional information about the instrument |
+| `lastUpdated` | `string` | Last update timestamp |
 | `leverage` | `table` |  |
-| `lotSizes` | `table` |  |
-| `marginRequirement` | `number` |  |
-| `minSpread` | `table` |  |
-| `name` | `string` |  |
-| `quoteCurrency` | `string` |  |
-| `spread` | `number` |  |
-| `symbol` | `string` |  |
-| `tradingHours` | `string` |  |
+| `lotSizes` | `table` | Available lot sizes |
+| `marginRequirement` | `number` | Margin requirement percentage |
+| `minSpread` | `table` | Minimum spreads by account type (in pips or points) |
+| `name` | `string` | Full name of the instrument |
+| `quoteCurrency` | `string` | Quote currency code |
+| `spread` | `number` | Spread in pips or points |
+| `symbol` | `string` | Trading symbol |
+| `tradingHours` | `string` | Trading hours availability |
 
 #### Example: List
 

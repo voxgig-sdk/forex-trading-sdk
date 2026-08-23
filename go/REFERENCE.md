@@ -99,24 +99,24 @@ fmt.Println(marketData.GetName()) // "market_data"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ask` | `float64` | Yes |  |
-| `baseCurrency` | `string` | No |  |
-| `bid` | `float64` | Yes |  |
-| `category` | `string` | Yes |  |
-| `change` | `float64` | No |  |
-| `changePercent` | `float64` | No |  |
-| `currency` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `lastUpdated` | `string` | No |  |
+| `ask` | `float64` | Yes | Current ask price |
+| `baseCurrency` | `string` | No | Base currency code |
+| `bid` | `float64` | Yes | Current bid price |
+| `category` | `string` | Yes | Instrument category |
+| `change` | `float64` | No | Price change from previous close |
+| `changePercent` | `float64` | No | Percentage change from previous close |
+| `currency` | `string` | Yes | Quote currency |
+| `description` | `string` | No | Additional information about the instrument |
+| `lastUpdated` | `string` | No | Last update timestamp |
 | `leverage` | `map[string]any` | No |  |
-| `lotSizes` | `[]any` | No |  |
-| `marginRequirement` | `float64` | Yes |  |
-| `minSpread` | `map[string]any` | No |  |
-| `name` | `string` | Yes |  |
-| `quoteCurrency` | `string` | No |  |
-| `spread` | `float64` | No |  |
-| `symbol` | `string` | Yes |  |
-| `tradingHours` | `string` | No |  |
+| `lotSizes` | `[]any` | No | Available lot sizes |
+| `marginRequirement` | `float64` | Yes | Margin requirement percentage |
+| `minSpread` | `map[string]any` | No | Minimum spreads by account type (in pips or points) |
+| `name` | `string` | Yes | Full name of the instrument |
+| `quoteCurrency` | `string` | No | Quote currency code |
+| `spread` | `float64` | No | Spread in pips or points |
+| `symbol` | `string` | Yes | Trading symbol |
+| `tradingHours` | `string` | No | Trading hours availability |
 
 ### Operations
 

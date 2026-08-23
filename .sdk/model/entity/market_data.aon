@@ -8,46 +8,55 @@ main: kit: entity: market_data: {
     {
       name: "ask"
       req: true
+      short: "Current ask price"
       type: "`$NUMBER`"
     }
     {
       name: "baseCurrency"
       req: false
+      short: "Base currency code"
       type: "`$STRING`"
     }
     {
       name: "bid"
       req: true
+      short: "Current bid price"
       type: "`$NUMBER`"
     }
     {
       name: "category"
       req: true
+      short: "Instrument category"
       type: "`$STRING`"
     }
     {
       name: "change"
       req: false
+      short: "Price change from previous close"
       type: "`$NUMBER`"
     }
     {
       name: "changePercent"
       req: false
+      short: "Percentage change from previous close"
       type: "`$NUMBER`"
     }
     {
       name: "currency"
       req: true
+      short: "Quote currency"
       type: "`$STRING`"
     }
     {
       name: "description"
       req: false
+      short: "Additional information about the instrument"
       type: "`$STRING`"
     }
     {
       name: "lastUpdated"
       req: false
+      short: "Last update timestamp"
       type: "`$STRING`"
     }
     {
@@ -58,41 +67,49 @@ main: kit: entity: market_data: {
     {
       name: "lotSizes"
       req: false
+      short: "Available lot sizes"
       type: "`$ARRAY`"
     }
     {
       name: "marginRequirement"
       req: true
+      short: "Margin requirement percentage"
       type: "`$NUMBER`"
     }
     {
       name: "minSpread"
       req: false
+      short: "Minimum spreads by account type (in pips or points)"
       type: "`$OBJECT`"
     }
     {
       name: "name"
       req: true
+      short: "Full name of the instrument"
       type: "`$STRING`"
     }
     {
       name: "quoteCurrency"
       req: false
+      short: "Quote currency code"
       type: "`$STRING`"
     }
     {
       name: "spread"
       req: false
+      short: "Spread in pips or points"
       type: "`$NUMBER`"
     }
     {
       name: "symbol"
       req: true
+      short: "Trading symbol"
       type: "`$STRING`"
     }
     {
       name: "tradingHours"
       req: false
+      short: "Trading hours availability"
       type: "`$STRING`"
     }
   ]

@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -293,24 +293,24 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `ask` |  |
-| `baseCurrency` |  |
-| `bid` |  |
-| `category` |  |
-| `change` |  |
-| `changePercent` |  |
-| `currency` |  |
-| `description` |  |
-| `lastUpdated` |  |
+| `ask` | Current ask price |
+| `baseCurrency` | Base currency code |
+| `bid` | Current bid price |
+| `category` | Instrument category |
+| `change` | Price change from previous close |
+| `changePercent` | Percentage change from previous close |
+| `currency` | Quote currency |
+| `description` | Additional information about the instrument |
+| `lastUpdated` | Last update timestamp |
 | `leverage` |  |
-| `lotSizes` |  |
-| `marginRequirement` |  |
-| `minSpread` |  |
-| `name` |  |
-| `quoteCurrency` |  |
-| `spread` |  |
-| `symbol` |  |
-| `tradingHours` |  |
+| `lotSizes` | Available lot sizes |
+| `marginRequirement` | Margin requirement percentage |
+| `minSpread` | Minimum spreads by account type (in pips or points) |
+| `name` | Full name of the instrument |
+| `quoteCurrency` | Quote currency code |
+| `spread` | Spread in pips or points |
+| `symbol` | Trading symbol |
+| `tradingHours` | Trading hours availability |
 
 Operations: list.
 
@@ -335,24 +335,24 @@ Create an instance: `const market_data = client.MarketData()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ask` | `number` |  |
-| `baseCurrency` | `string` |  |
-| `bid` | `number` |  |
-| `category` | `string` |  |
-| `change` | `number` |  |
-| `changePercent` | `number` |  |
-| `currency` | `string` |  |
-| `description` | `string` |  |
-| `lastUpdated` | `string` |  |
+| `ask` | `number` | Current ask price |
+| `baseCurrency` | `string` | Base currency code |
+| `bid` | `number` | Current bid price |
+| `category` | `string` | Instrument category |
+| `change` | `number` | Price change from previous close |
+| `changePercent` | `number` | Percentage change from previous close |
+| `currency` | `string` | Quote currency |
+| `description` | `string` | Additional information about the instrument |
+| `lastUpdated` | `string` | Last update timestamp |
 | `leverage` | `Record<string, any>` |  |
-| `lotSizes` | `any[]` |  |
-| `marginRequirement` | `number` |  |
-| `minSpread` | `Record<string, any>` |  |
-| `name` | `string` |  |
-| `quoteCurrency` | `string` |  |
-| `spread` | `number` |  |
-| `symbol` | `string` |  |
-| `tradingHours` | `string` |  |
+| `lotSizes` | `any[]` | Available lot sizes |
+| `marginRequirement` | `number` | Margin requirement percentage |
+| `minSpread` | `Record<string, any>` | Minimum spreads by account type (in pips or points) |
+| `name` | `string` | Full name of the instrument |
+| `quoteCurrency` | `string` | Quote currency code |
+| `spread` | `number` | Spread in pips or points |
+| `symbol` | `string` | Trading symbol |
+| `tradingHours` | `string` | Trading hours availability |
 
 #### Example: List
 

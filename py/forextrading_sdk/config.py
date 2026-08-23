@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "ForexTrading",
+            "slug": "forex-trading",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -54,41 +57,50 @@ def make_config():
           {
             "name": "ask",
             "req": True,
+            "short": "Current ask price",
             "type": "`$NUMBER`",
           },
           {
             "name": "baseCurrency",
+            "short": "Base currency code",
             "type": "`$STRING`",
           },
           {
             "name": "bid",
             "req": True,
+            "short": "Current bid price",
             "type": "`$NUMBER`",
           },
           {
             "name": "category",
             "req": True,
+            "short": "Instrument category",
             "type": "`$STRING`",
           },
           {
             "name": "change",
+            "short": "Price change from previous close",
             "type": "`$NUMBER`",
           },
           {
             "name": "changePercent",
+            "short": "Percentage change from previous close",
             "type": "`$NUMBER`",
           },
           {
             "name": "currency",
             "req": True,
+            "short": "Quote currency",
             "type": "`$STRING`",
           },
           {
             "name": "description",
+            "short": "Additional information about the instrument",
             "type": "`$STRING`",
           },
           {
             "name": "lastUpdated",
+            "short": "Last update timestamp",
             "type": "`$STRING`",
           },
           {
@@ -97,37 +109,45 @@ def make_config():
           },
           {
             "name": "lotSizes",
+            "short": "Available lot sizes",
             "type": "`$ARRAY`",
           },
           {
             "name": "marginRequirement",
             "req": True,
+            "short": "Margin requirement percentage",
             "type": "`$NUMBER`",
           },
           {
             "name": "minSpread",
+            "short": "Minimum spreads by account type (in pips or points)",
             "type": "`$OBJECT`",
           },
           {
             "name": "name",
             "req": True,
+            "short": "Full name of the instrument",
             "type": "`$STRING`",
           },
           {
             "name": "quoteCurrency",
+            "short": "Quote currency code",
             "type": "`$STRING`",
           },
           {
             "name": "spread",
+            "short": "Spread in pips or points",
             "type": "`$NUMBER`",
           },
           {
             "name": "symbol",
             "req": True,
+            "short": "Trading symbol",
             "type": "`$STRING`",
           },
           {
             "name": "tradingHours",
+            "short": "Trading hours availability",
             "type": "`$STRING`",
           },
         ],

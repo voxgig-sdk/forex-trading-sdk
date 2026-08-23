@@ -6,7 +6,7 @@ The Golang SDK for the ForexTrading API — an entity-oriented client using stan
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.MarketData(nil)` — each with the same small set of operations (`List`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -265,24 +265,24 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"ask"` |  |
-| `"baseCurrency"` |  |
-| `"bid"` |  |
-| `"category"` |  |
-| `"change"` |  |
-| `"changePercent"` |  |
-| `"currency"` |  |
-| `"description"` |  |
-| `"lastUpdated"` |  |
+| `"ask"` | Current ask price |
+| `"baseCurrency"` | Base currency code |
+| `"bid"` | Current bid price |
+| `"category"` | Instrument category |
+| `"change"` | Price change from previous close |
+| `"changePercent"` | Percentage change from previous close |
+| `"currency"` | Quote currency |
+| `"description"` | Additional information about the instrument |
+| `"lastUpdated"` | Last update timestamp |
 | `"leverage"` |  |
-| `"lotSizes"` |  |
-| `"marginRequirement"` |  |
-| `"minSpread"` |  |
-| `"name"` |  |
-| `"quoteCurrency"` |  |
-| `"spread"` |  |
-| `"symbol"` |  |
-| `"tradingHours"` |  |
+| `"lotSizes"` | Available lot sizes |
+| `"marginRequirement"` | Margin requirement percentage |
+| `"minSpread"` | Minimum spreads by account type (in pips or points) |
+| `"name"` | Full name of the instrument |
+| `"quoteCurrency"` | Quote currency code |
+| `"spread"` | Spread in pips or points |
+| `"symbol"` | Trading symbol |
+| `"tradingHours"` | Trading hours availability |
 
 Operations: List.
 
@@ -307,24 +307,24 @@ Create an instance: `marketData := client.MarketData(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ask` | `float64` |  |
-| `baseCurrency` | `string` |  |
-| `bid` | `float64` |  |
-| `category` | `string` |  |
-| `change` | `float64` |  |
-| `changePercent` | `float64` |  |
-| `currency` | `string` |  |
-| `description` | `string` |  |
-| `lastUpdated` | `string` |  |
+| `ask` | `float64` | Current ask price |
+| `baseCurrency` | `string` | Base currency code |
+| `bid` | `float64` | Current bid price |
+| `category` | `string` | Instrument category |
+| `change` | `float64` | Price change from previous close |
+| `changePercent` | `float64` | Percentage change from previous close |
+| `currency` | `string` | Quote currency |
+| `description` | `string` | Additional information about the instrument |
+| `lastUpdated` | `string` | Last update timestamp |
 | `leverage` | `map[string]any` |  |
-| `lotSizes` | `[]any` |  |
-| `marginRequirement` | `float64` |  |
-| `minSpread` | `map[string]any` |  |
-| `name` | `string` |  |
-| `quoteCurrency` | `string` |  |
-| `spread` | `float64` |  |
-| `symbol` | `string` |  |
-| `tradingHours` | `string` |  |
+| `lotSizes` | `[]any` | Available lot sizes |
+| `marginRequirement` | `float64` | Margin requirement percentage |
+| `minSpread` | `map[string]any` | Minimum spreads by account type (in pips or points) |
+| `name` | `string` | Full name of the instrument |
+| `quoteCurrency` | `string` | Quote currency code |
+| `spread` | `float64` | Spread in pips or points |
+| `symbol` | `string` | Trading symbol |
+| `tradingHours` | `string` | Trading hours availability |
 
 #### Example: List
 

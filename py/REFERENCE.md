@@ -88,24 +88,24 @@ market_data = client.MarketData()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ask` | `float` | Yes |  |
-| `baseCurrency` | `str` | No |  |
-| `bid` | `float` | Yes |  |
-| `category` | `str` | Yes |  |
-| `change` | `float` | No |  |
-| `changePercent` | `float` | No |  |
-| `currency` | `str` | Yes |  |
-| `description` | `str` | No |  |
-| `lastUpdated` | `str` | No |  |
+| `ask` | `float` | Yes | Current ask price |
+| `baseCurrency` | `str` | No | Base currency code |
+| `bid` | `float` | Yes | Current bid price |
+| `category` | `str` | Yes | Instrument category |
+| `change` | `float` | No | Price change from previous close |
+| `changePercent` | `float` | No | Percentage change from previous close |
+| `currency` | `str` | Yes | Quote currency |
+| `description` | `str` | No | Additional information about the instrument |
+| `lastUpdated` | `str` | No | Last update timestamp |
 | `leverage` | `dict` | No |  |
-| `lotSizes` | `list` | No |  |
-| `marginRequirement` | `float` | Yes |  |
-| `minSpread` | `dict` | No |  |
-| `name` | `str` | Yes |  |
-| `quoteCurrency` | `str` | No |  |
-| `spread` | `float` | No |  |
-| `symbol` | `str` | Yes |  |
-| `tradingHours` | `str` | No |  |
+| `lotSizes` | `list` | No | Available lot sizes |
+| `marginRequirement` | `float` | Yes | Margin requirement percentage |
+| `minSpread` | `dict` | No | Minimum spreads by account type (in pips or points) |
+| `name` | `str` | Yes | Full name of the instrument |
+| `quoteCurrency` | `str` | No | Quote currency code |
+| `spread` | `float` | No | Spread in pips or points |
+| `symbol` | `str` | Yes | Trading symbol |
+| `tradingHours` | `str` | No | Trading hours availability |
 
 ### Operations
 

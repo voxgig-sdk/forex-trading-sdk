@@ -251,24 +251,24 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `ask` |  |
-| `baseCurrency` |  |
-| `bid` |  |
-| `category` |  |
-| `change` |  |
-| `changePercent` |  |
-| `currency` |  |
-| `description` |  |
-| `lastUpdated` |  |
+| `ask` | Current ask price |
+| `baseCurrency` | Base currency code |
+| `bid` | Current bid price |
+| `category` | Instrument category |
+| `change` | Price change from previous close |
+| `changePercent` | Percentage change from previous close |
+| `currency` | Quote currency |
+| `description` | Additional information about the instrument |
+| `lastUpdated` | Last update timestamp |
 | `leverage` |  |
-| `lotSizes` |  |
-| `marginRequirement` |  |
-| `minSpread` |  |
-| `name` |  |
-| `quoteCurrency` |  |
-| `spread` |  |
-| `symbol` |  |
-| `tradingHours` |  |
+| `lotSizes` | Available lot sizes |
+| `marginRequirement` | Margin requirement percentage |
+| `minSpread` | Minimum spreads by account type (in pips or points) |
+| `name` | Full name of the instrument |
+| `quoteCurrency` | Quote currency code |
+| `spread` | Spread in pips or points |
+| `symbol` | Trading symbol |
+| `tradingHours` | Trading hours availability |
 
 Operations: List.
 
@@ -293,24 +293,24 @@ Create an instance: `$market_data = $client->MarketData();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ask` | `float` |  |
-| `baseCurrency` | `string` |  |
-| `bid` | `float` |  |
-| `category` | `string` |  |
-| `change` | `float` |  |
-| `changePercent` | `float` |  |
-| `currency` | `string` |  |
-| `description` | `string` |  |
-| `lastUpdated` | `string` |  |
+| `ask` | `float` | Current ask price |
+| `baseCurrency` | `string` | Base currency code |
+| `bid` | `float` | Current bid price |
+| `category` | `string` | Instrument category |
+| `change` | `float` | Price change from previous close |
+| `changePercent` | `float` | Percentage change from previous close |
+| `currency` | `string` | Quote currency |
+| `description` | `string` | Additional information about the instrument |
+| `lastUpdated` | `string` | Last update timestamp |
 | `leverage` | `array` |  |
-| `lotSizes` | `array` |  |
-| `marginRequirement` | `float` |  |
-| `minSpread` | `array` |  |
-| `name` | `string` |  |
-| `quoteCurrency` | `string` |  |
-| `spread` | `float` |  |
-| `symbol` | `string` |  |
-| `tradingHours` | `string` |  |
+| `lotSizes` | `array` | Available lot sizes |
+| `marginRequirement` | `float` | Margin requirement percentage |
+| `minSpread` | `array` | Minimum spreads by account type (in pips or points) |
+| `name` | `string` | Full name of the instrument |
+| `quoteCurrency` | `string` | Quote currency code |
+| `spread` | `float` | Spread in pips or points |
+| `symbol` | `string` | Trading symbol |
+| `tradingHours` | `string` | Trading hours availability |
 
 #### Example: List
 

@@ -241,24 +241,24 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `ask` |  |
-| `baseCurrency` |  |
-| `bid` |  |
-| `category` |  |
-| `change` |  |
-| `changePercent` |  |
-| `currency` |  |
-| `description` |  |
-| `lastUpdated` |  |
+| `ask` | Current ask price |
+| `baseCurrency` | Base currency code |
+| `bid` | Current bid price |
+| `category` | Instrument category |
+| `change` | Price change from previous close |
+| `changePercent` | Percentage change from previous close |
+| `currency` | Quote currency |
+| `description` | Additional information about the instrument |
+| `lastUpdated` | Last update timestamp |
 | `leverage` |  |
-| `lotSizes` |  |
-| `marginRequirement` |  |
-| `minSpread` |  |
-| `name` |  |
-| `quoteCurrency` |  |
-| `spread` |  |
-| `symbol` |  |
-| `tradingHours` |  |
+| `lotSizes` | Available lot sizes |
+| `marginRequirement` | Margin requirement percentage |
+| `minSpread` | Minimum spreads by account type (in pips or points) |
+| `name` | Full name of the instrument |
+| `quoteCurrency` | Quote currency code |
+| `spread` | Spread in pips or points |
+| `symbol` | Trading symbol |
+| `tradingHours` | Trading hours availability |
 
 Operations: List.
 
@@ -283,24 +283,24 @@ Create an instance: `market_data = client.MarketData`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ask` | `Float` |  |
-| `baseCurrency` | `String` |  |
-| `bid` | `Float` |  |
-| `category` | `String` |  |
-| `change` | `Float` |  |
-| `changePercent` | `Float` |  |
-| `currency` | `String` |  |
-| `description` | `String` |  |
-| `lastUpdated` | `String` |  |
+| `ask` | `Float` | Current ask price |
+| `baseCurrency` | `String` | Base currency code |
+| `bid` | `Float` | Current bid price |
+| `category` | `String` | Instrument category |
+| `change` | `Float` | Price change from previous close |
+| `changePercent` | `Float` | Percentage change from previous close |
+| `currency` | `String` | Quote currency |
+| `description` | `String` | Additional information about the instrument |
+| `lastUpdated` | `String` | Last update timestamp |
 | `leverage` | `Hash` |  |
-| `lotSizes` | `Array` |  |
-| `marginRequirement` | `Float` |  |
-| `minSpread` | `Hash` |  |
-| `name` | `String` |  |
-| `quoteCurrency` | `String` |  |
-| `spread` | `Float` |  |
-| `symbol` | `String` |  |
-| `tradingHours` | `String` |  |
+| `lotSizes` | `Array` | Available lot sizes |
+| `marginRequirement` | `Float` | Margin requirement percentage |
+| `minSpread` | `Hash` | Minimum spreads by account type (in pips or points) |
+| `name` | `String` | Full name of the instrument |
+| `quoteCurrency` | `String` | Quote currency code |
+| `spread` | `Float` | Spread in pips or points |
+| `symbol` | `String` | Trading symbol |
+| `tradingHours` | `String` | Trading hours availability |
 
 #### Example: List
 

@@ -93,24 +93,24 @@ $market_data = $client->MarketData();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ask` | `float` | Yes |  |
-| `baseCurrency` | `string` | No |  |
-| `bid` | `float` | Yes |  |
-| `category` | `string` | Yes |  |
-| `change` | `float` | No |  |
-| `changePercent` | `float` | No |  |
-| `currency` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `lastUpdated` | `string` | No |  |
+| `ask` | `float` | Yes | Current ask price |
+| `baseCurrency` | `string` | No | Base currency code |
+| `bid` | `float` | Yes | Current bid price |
+| `category` | `string` | Yes | Instrument category |
+| `change` | `float` | No | Price change from previous close |
+| `changePercent` | `float` | No | Percentage change from previous close |
+| `currency` | `string` | Yes | Quote currency |
+| `description` | `string` | No | Additional information about the instrument |
+| `lastUpdated` | `string` | No | Last update timestamp |
 | `leverage` | `array` | No |  |
-| `lotSizes` | `array` | No |  |
-| `marginRequirement` | `float` | Yes |  |
-| `minSpread` | `array` | No |  |
-| `name` | `string` | Yes |  |
-| `quoteCurrency` | `string` | No |  |
-| `spread` | `float` | No |  |
-| `symbol` | `string` | Yes |  |
-| `tradingHours` | `string` | No |  |
+| `lotSizes` | `array` | No | Available lot sizes |
+| `marginRequirement` | `float` | Yes | Margin requirement percentage |
+| `minSpread` | `array` | No | Minimum spreads by account type (in pips or points) |
+| `name` | `string` | Yes | Full name of the instrument |
+| `quoteCurrency` | `string` | No | Quote currency code |
+| `spread` | `float` | No | Spread in pips or points |
+| `symbol` | `string` | Yes | Trading symbol |
+| `tradingHours` | `string` | No | Trading hours availability |
 
 ### Operations
 

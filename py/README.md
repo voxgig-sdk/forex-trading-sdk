@@ -248,24 +248,24 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `ask` |  |
-| `baseCurrency` |  |
-| `bid` |  |
-| `category` |  |
-| `change` |  |
-| `changePercent` |  |
-| `currency` |  |
-| `description` |  |
-| `lastUpdated` |  |
+| `ask` | Current ask price |
+| `baseCurrency` | Base currency code |
+| `bid` | Current bid price |
+| `category` | Instrument category |
+| `change` | Price change from previous close |
+| `changePercent` | Percentage change from previous close |
+| `currency` | Quote currency |
+| `description` | Additional information about the instrument |
+| `lastUpdated` | Last update timestamp |
 | `leverage` |  |
-| `lotSizes` |  |
-| `marginRequirement` |  |
-| `minSpread` |  |
-| `name` |  |
-| `quoteCurrency` |  |
-| `spread` |  |
-| `symbol` |  |
-| `tradingHours` |  |
+| `lotSizes` | Available lot sizes |
+| `marginRequirement` | Margin requirement percentage |
+| `minSpread` | Minimum spreads by account type (in pips or points) |
+| `name` | Full name of the instrument |
+| `quoteCurrency` | Quote currency code |
+| `spread` | Spread in pips or points |
+| `symbol` | Trading symbol |
+| `tradingHours` | Trading hours availability |
 
 Operations: List.
 
@@ -290,24 +290,24 @@ Create an instance: `market_data = client.MarketData()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ask` | `float` |  |
-| `baseCurrency` | `str` |  |
-| `bid` | `float` |  |
-| `category` | `str` |  |
-| `change` | `float` |  |
-| `changePercent` | `float` |  |
-| `currency` | `str` |  |
-| `description` | `str` |  |
-| `lastUpdated` | `str` |  |
+| `ask` | `float` | Current ask price |
+| `baseCurrency` | `str` | Base currency code |
+| `bid` | `float` | Current bid price |
+| `category` | `str` | Instrument category |
+| `change` | `float` | Price change from previous close |
+| `changePercent` | `float` | Percentage change from previous close |
+| `currency` | `str` | Quote currency |
+| `description` | `str` | Additional information about the instrument |
+| `lastUpdated` | `str` | Last update timestamp |
 | `leverage` | `dict` |  |
-| `lotSizes` | `list` |  |
-| `marginRequirement` | `float` |  |
-| `minSpread` | `dict` |  |
-| `name` | `str` |  |
-| `quoteCurrency` | `str` |  |
-| `spread` | `float` |  |
-| `symbol` | `str` |  |
-| `tradingHours` | `str` |  |
+| `lotSizes` | `list` | Available lot sizes |
+| `marginRequirement` | `float` | Margin requirement percentage |
+| `minSpread` | `dict` | Minimum spreads by account type (in pips or points) |
+| `name` | `str` | Full name of the instrument |
+| `quoteCurrency` | `str` | Quote currency code |
+| `spread` | `float` | Spread in pips or points |
+| `symbol` | `str` | Trading symbol |
+| `tradingHours` | `str` | Trading hours availability |
 
 #### Example: List
 

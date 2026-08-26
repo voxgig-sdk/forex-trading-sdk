@@ -28,6 +28,7 @@ module ForexTradingConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {

@@ -36,24 +36,8 @@ type MarketData struct {
 
 // MarketDataListMatch is the typed request payload for MarketData.ListTyped.
 type MarketDataListMatch struct {
-	Ask *float64 `json:"ask,omitempty"`
-	BaseCurrency *string `json:"baseCurrency,omitempty"`
-	Bid *float64 `json:"bid,omitempty"`
+	AccountType *string `json:"account_type,omitempty"`
 	Category *string `json:"category,omitempty"`
-	Change *float64 `json:"change,omitempty"`
-	ChangePercent *float64 `json:"changePercent,omitempty"`
-	Currency *string `json:"currency,omitempty"`
-	Description *string `json:"description,omitempty"`
-	LastUpdated *string `json:"lastUpdated,omitempty"`
-	Leverage *map[string]any `json:"leverage,omitempty"`
-	LotSizes *[]any `json:"lotSizes,omitempty"`
-	MarginRequirement *float64 `json:"marginRequirement,omitempty"`
-	MinSpread *map[string]any `json:"minSpread,omitempty"`
-	Name *string `json:"name,omitempty"`
-	QuoteCurrency *string `json:"quoteCurrency,omitempty"`
-	Spread *float64 `json:"spread,omitempty"`
-	Symbol *string `json:"symbol,omitempty"`
-	TradingHours *string `json:"tradingHours,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

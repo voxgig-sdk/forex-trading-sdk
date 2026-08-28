@@ -41,21 +41,5 @@ class MarketData(MarketDataRequired, total=False):
 
 
 class MarketDataListMatch(TypedDict, total=False):
-    ask: float
-    baseCurrency: str
-    bid: float
+    account_type: str
     category: str
-    change: float
-    changePercent: float
-    currency: str
-    description: str
-    lastUpdated: str
-    leverage: dict
-    lotSizes: list
-    marginRequirement: float
-    minSpread: dict
-    name: str
-    quoteCurrency: str
-    spread: float
-    symbol: str
-    tradingHours: str

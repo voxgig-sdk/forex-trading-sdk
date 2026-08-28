@@ -38,23 +38,7 @@ class MarketData
 /** Request payload for MarketData#list. */
 class MarketDataListMatch
 {
-    public ?float $ask = null;
-    public ?string $baseCurrency = null;
-    public ?float $bid = null;
+    public ?string $account_type = null;
     public ?string $category = null;
-    public ?float $change = null;
-    public ?float $changePercent = null;
-    public ?string $currency = null;
-    public ?string $description = null;
-    public ?string $lastUpdated = null;
-    public ?array $leverage = null;
-    public ?array $lotSizes = null;
-    public ?float $marginRequirement = null;
-    public ?array $minSpread = null;
-    public ?string $name = null;
-    public ?string $quoteCurrency = null;
-    public ?float $spread = null;
-    public ?string $symbol = null;
-    public ?string $tradingHours = null;
 }
 

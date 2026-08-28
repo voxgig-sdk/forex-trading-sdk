@@ -87,78 +87,14 @@ MarketData = Struct.new(
 
 # Request payload for MarketData#list.
 #
-# @!attribute [rw] ask
-#   @return [Float, nil]
-#
-# @!attribute [rw] baseCurrency
+# @!attribute [rw] account_type
 #   @return [String, nil]
-#
-# @!attribute [rw] bid
-#   @return [Float, nil]
 #
 # @!attribute [rw] category
 #   @return [String, nil]
-#
-# @!attribute [rw] change
-#   @return [Float, nil]
-#
-# @!attribute [rw] changePercent
-#   @return [Float, nil]
-#
-# @!attribute [rw] currency
-#   @return [String, nil]
-#
-# @!attribute [rw] description
-#   @return [String, nil]
-#
-# @!attribute [rw] lastUpdated
-#   @return [String, nil]
-#
-# @!attribute [rw] leverage
-#   @return [Hash, nil]
-#
-# @!attribute [rw] lotSizes
-#   @return [Array, nil]
-#
-# @!attribute [rw] marginRequirement
-#   @return [Float, nil]
-#
-# @!attribute [rw] minSpread
-#   @return [Hash, nil]
-#
-# @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] quoteCurrency
-#   @return [String, nil]
-#
-# @!attribute [rw] spread
-#   @return [Float, nil]
-#
-# @!attribute [rw] symbol
-#   @return [String, nil]
-#
-# @!attribute [rw] tradingHours
-#   @return [String, nil]
 MarketDataListMatch = Struct.new(
-  :ask,
-  :baseCurrency,
-  :bid,
+  :account_type,
   :category,
-  :change,
-  :changePercent,
-  :currency,
-  :description,
-  :lastUpdated,
-  :leverage,
-  :lotSizes,
-  :marginRequirement,
-  :minSpread,
-  :name,
-  :quoteCurrency,
-  :spread,
-  :symbol,
-  :tradingHours,
   keyword_init: true
 )
 

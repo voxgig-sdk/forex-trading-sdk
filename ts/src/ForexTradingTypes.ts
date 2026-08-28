@@ -27,23 +27,7 @@ export interface MarketData {
 }
 
 export interface MarketDataListMatch {
-  ask?: number
-  baseCurrency?: string
-  bid?: number
+  account_type?: string
   category?: string
-  change?: number
-  changePercent?: number
-  currency?: string
-  description?: string
-  lastUpdated?: string
-  leverage?: Record<string, any>
-  lotSizes?: any[]
-  marginRequirement?: number
-  minSpread?: Record<string, any>
-  name?: string
-  quoteCurrency?: string
-  spread?: number
-  symbol?: string
-  tradingHours?: string
 }
 

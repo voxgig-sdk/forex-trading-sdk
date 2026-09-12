@@ -94,14 +94,22 @@ func market_dataDirectSetup(mockres any) *market_dataDirectSetupResult {
 	env := envOverride(map[string]any{
 		"FOREX_TRADING_TEST_MARKET_DATA_ENTID": map[string]any{},
 		"FOREX_TRADING_TEST_LIVE":    "FALSE",
-		"FOREX_TRADING_APIKEY":       "NONE",
+		"FOREX_TRADING_APIKEY":       "",
 	})
 
 	live := env["FOREX_TRADING_TEST_LIVE"] == "TRUE"
 
 	if live {
-		mergedOpts := map[string]any{
+		// sdk-test-control.json's test.client.options seeds the live
+		// client; the generated fields below overwrite anything they name.
+		mergedOpts := map[string]any{}
+		for k, v := range liveClientOptions() {
+			mergedOpts[k] = v
+		}
+		for k, v := range map[string]any{
 			"apikey": env["FOREX_TRADING_APIKEY"],
+		} {
+			mergedOpts[k] = v
 		}
 		client := sdk.NewForexTradingSDK(mergedOpts)
 

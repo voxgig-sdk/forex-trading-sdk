@@ -47,6 +47,7 @@ module ForexTradingConfig
         "market_data" => {
           "fields" => [
             {
+              "format" => "double",
               "name" => "ask",
               "req" => true,
               "short" => "Current ask price",
@@ -58,6 +59,7 @@ module ForexTradingConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "double",
               "name" => "bid",
               "req" => true,
               "short" => "Current bid price",
@@ -70,11 +72,13 @@ module ForexTradingConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "double",
               "name" => "change",
               "short" => "Price change from previous close",
               "type" => "`$NUMBER`",
             },
             {
+              "format" => "double",
               "name" => "changePercent",
               "short" => "Percentage change from previous close",
               "type" => "`$NUMBER`",
@@ -91,6 +95,7 @@ module ForexTradingConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "date-time",
               "name" => "lastUpdated",
               "short" => "Last update timestamp",
               "type" => "`$STRING`",
@@ -105,6 +110,7 @@ module ForexTradingConfig
               "type" => "`$ARRAY`",
             },
             {
+              "format" => "double",
               "name" => "marginRequirement",
               "req" => true,
               "short" => "Margin requirement percentage",
@@ -127,6 +133,7 @@ module ForexTradingConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "double",
               "name" => "spread",
               "short" => "Spread in pips or points",
               "type" => "`$NUMBER`",
@@ -171,8 +178,10 @@ module ForexTradingConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/instruments",
-                  "parts" => [
-                    "instruments",
+                  "segments" => [
+                    {
+                      "lit" => "instruments",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -184,6 +193,9 @@ module ForexTradingConfig
                     "req" => "`reqdata`",
                     "res" => "`body.instruments`",
                   },
+                  "parts" => [
+                    "instruments",
+                  ],
                 },
                 {
                   "args" => {
@@ -208,8 +220,10 @@ module ForexTradingConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/quotes",
-                  "parts" => [
-                    "quotes",
+                  "segments" => [
+                    {
+                      "lit" => "quotes",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -221,6 +235,9 @@ module ForexTradingConfig
                     "req" => "`reqdata`",
                     "res" => "`body.quotes`",
                   },
+                  "parts" => [
+                    "quotes",
+                  ],
                 },
               ],
             },

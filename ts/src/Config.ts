@@ -10,6 +10,17 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
+// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
+// the model's active plugin groups. A feature that takes a `plugins` option
+// (secrets over sekreto) reads its own entry; a feature with no plugins has
+// none. Named imports above make each definition statically reachable, so
+// an SDK carries exactly the plugin modules its model selects — the same
+// leanness the old side-effect registry imports bought, without a registry.
+const FEATURE_PLUGINS: Record<string, any[]> = {
+  
+}
+
+
 class Config {
 
   makeFeature(this: any, fn: string) {
@@ -71,6 +82,7 @@ class Config {
     "market_data": {
       "fields": [
         {
+          "format": "double",
           "name": "ask",
           "req": true,
           "short": "Current ask price",
@@ -82,6 +94,7 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "format": "double",
           "name": "bid",
           "req": true,
           "short": "Current bid price",
@@ -94,11 +107,13 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "format": "double",
           "name": "change",
           "short": "Price change from previous close",
           "type": "`$NUMBER`"
         },
         {
+          "format": "double",
           "name": "changePercent",
           "short": "Percentage change from previous close",
           "type": "`$NUMBER`"
@@ -115,6 +130,7 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "format": "date-time",
           "name": "lastUpdated",
           "short": "Last update timestamp",
           "type": "`$STRING`"
@@ -129,6 +145,7 @@ class Config {
           "type": "`$ARRAY`"
         },
         {
+          "format": "double",
           "name": "marginRequirement",
           "req": true,
           "short": "Margin requirement percentage",
@@ -151,6 +168,7 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "format": "double",
           "name": "spread",
           "short": "Spread in pips or points",
           "type": "`$NUMBER`"
@@ -195,8 +213,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/instruments",
-              "parts": [
-                "instruments"
+              "segments": [
+                {
+                  "lit": "instruments"
+                }
               ],
               "select": {
                 "exist": [
@@ -207,7 +227,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.instruments`"
-              }
+              },
+              "parts": [
+                "instruments"
+              ]
             },
             {
               "args": {
@@ -232,8 +255,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/quotes",
-              "parts": [
-                "quotes"
+              "segments": [
+                {
+                  "lit": "quotes"
+                }
               ],
               "select": {
                 "exist": [
@@ -244,7 +269,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.quotes`"
-              }
+              },
+              "parts": [
+                "quotes"
+              ]
             }
           ]
         }
@@ -260,6 +288,7 @@ class Config {
 const config = new Config()
 
 export {
-  config
+  config,
+  FEATURE_PLUGINS,
 }
 

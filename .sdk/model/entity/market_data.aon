@@ -6,6 +6,7 @@ main: kit: entity: market_data: {
 
   fields: [
     {
+      format: "double"
       name: "ask"
       req: true
       short: "Current ask price"
@@ -18,6 +19,7 @@ main: kit: entity: market_data: {
       type: "`$STRING`"
     }
     {
+      format: "double"
       name: "bid"
       req: true
       short: "Current bid price"
@@ -30,12 +32,14 @@ main: kit: entity: market_data: {
       type: "`$STRING`"
     }
     {
+      format: "double"
       name: "change"
       req: false
       short: "Price change from previous close"
       type: "`$NUMBER`"
     }
     {
+      format: "double"
       name: "changePercent"
       req: false
       short: "Percentage change from previous close"
@@ -54,6 +58,7 @@ main: kit: entity: market_data: {
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "lastUpdated"
       req: false
       short: "Last update timestamp"
@@ -71,6 +76,7 @@ main: kit: entity: market_data: {
       type: "`$ARRAY`"
     }
     {
+      format: "double"
       name: "marginRequirement"
       req: true
       short: "Margin requirement percentage"
@@ -95,6 +101,7 @@ main: kit: entity: market_data: {
       type: "`$STRING`"
     }
     {
+      format: "double"
       name: "spread"
       req: false
       short: "Spread in pips or points"
@@ -142,8 +149,10 @@ main: kit: entity: market_data: {
           }
           method: "GET"
           orig: "/instruments"
-          parts: [
-            "instruments"
+          segments: [
+            {
+              lit: "instruments"
+            }
           ]
           select: {
             exist: [
@@ -179,8 +188,10 @@ main: kit: entity: market_data: {
           }
           method: "GET"
           orig: "/quotes"
-          parts: [
-            "quotes"
+          segments: [
+            {
+              lit: "quotes"
+            }
           ]
           select: {
             exist: [

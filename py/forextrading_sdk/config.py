@@ -1,6 +1,14 @@
 # ForexTrading SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -56,6 +64,7 @@ def make_config():
       "market_data": {
         "fields": [
           {
+            "format": "double",
             "name": "ask",
             "req": True,
             "short": "Current ask price",
@@ -67,6 +76,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "double",
             "name": "bid",
             "req": True,
             "short": "Current bid price",
@@ -79,11 +89,13 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "double",
             "name": "change",
             "short": "Price change from previous close",
             "type": "`$NUMBER`",
           },
           {
+            "format": "double",
             "name": "changePercent",
             "short": "Percentage change from previous close",
             "type": "`$NUMBER`",
@@ -100,6 +112,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "lastUpdated",
             "short": "Last update timestamp",
             "type": "`$STRING`",
@@ -114,6 +127,7 @@ def make_config():
             "type": "`$ARRAY`",
           },
           {
+            "format": "double",
             "name": "marginRequirement",
             "req": True,
             "short": "Margin requirement percentage",
@@ -136,6 +150,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "double",
             "name": "spread",
             "short": "Spread in pips or points",
             "type": "`$NUMBER`",
@@ -180,8 +195,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/instruments",
-                "parts": [
-                  "instruments",
+                "segments": [
+                  {
+                    "lit": "instruments",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -193,6 +210,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.instruments`",
                 },
+                "parts": [
+                  "instruments",
+                ],
               },
               {
                 "args": {
@@ -217,8 +237,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/quotes",
-                "parts": [
-                  "quotes",
+                "segments": [
+                  {
+                    "lit": "quotes",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -230,6 +252,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.quotes`",
                 },
+                "parts": [
+                  "quotes",
+                ],
               },
             ],
           },

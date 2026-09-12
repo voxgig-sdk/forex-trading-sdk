@@ -39,6 +39,7 @@ func MakeConfig() map[string]any {
 			"market_data": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"format": "double",
 						"name": "ask",
 						"req": true,
 						"short": "Current ask price",
@@ -50,6 +51,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "double",
 						"name": "bid",
 						"req": true,
 						"short": "Current bid price",
@@ -62,11 +64,13 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "double",
 						"name": "change",
 						"short": "Price change from previous close",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
+						"format": "double",
 						"name": "changePercent",
 						"short": "Percentage change from previous close",
 						"type": "`$NUMBER`",
@@ -83,6 +87,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "date-time",
 						"name": "lastUpdated",
 						"short": "Last update timestamp",
 						"type": "`$STRING`",
@@ -97,6 +102,7 @@ func MakeConfig() map[string]any {
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
+						"format": "double",
 						"name": "marginRequirement",
 						"req": true,
 						"short": "Margin requirement percentage",
@@ -119,6 +125,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "double",
 						"name": "spread",
 						"short": "Spread in pips or points",
 						"type": "`$NUMBER`",
@@ -163,8 +170,10 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/instruments",
-								"parts": []any{
-									"instruments",
+								"segments": []any{
+									map[string]any{
+										"lit": "instruments",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -175,6 +184,9 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.instruments`",
+								},
+								"parts": []any{
+									"instruments",
 								},
 							},
 							map[string]any{
@@ -200,8 +212,10 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/quotes",
-								"parts": []any{
-									"quotes",
+								"segments": []any{
+									map[string]any{
+										"lit": "quotes",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -213,6 +227,9 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body.quotes`",
 								},
+								"parts": []any{
+									"quotes",
+								},
 							},
 						},
 					},
@@ -223,6 +240,17 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+// The plugin definitions the model selected per feature, as []any so a
+// feature package can consume them without core naming its types. Empty
+// when no active feature declares active plugin groups for this target.
+var featurePlugins = map[string][]any{
+}
+
+// FeaturePlugins is the definitions list for one feature's chain.
+func FeaturePlugins(name string) []any {
+	return featurePlugins[name]
 }
 
 var (

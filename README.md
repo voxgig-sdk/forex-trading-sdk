@@ -105,7 +105,7 @@ local results, err = client:MarketData():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/forex-trading` | publish pending — [install from git tag](https://github.com/voxgig-sdk/forex-trading-sdk/releases) |
+| TypeScript | `@voxgig-sdk/forex-trading-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/forex-trading-sdk/releases) |
 | Python | `voxgig-sdk-forex-trading` | publish pending — [install from git tag](https://github.com/voxgig-sdk/forex-trading-sdk/releases) |
 | PHP | `voxgig-sdk/forex-trading` | publish pending — [install from git tag](https://github.com/voxgig-sdk/forex-trading-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/forex-trading-sdk/go` | `go get github.com/voxgig-sdk/forex-trading-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:MarketData():list()
 ### TypeScript
 
 ```ts
-import { ForexTradingSDK } from '@voxgig-sdk/forex-trading'
+import { ForexTradingSDK } from '@voxgig-sdk/forex-trading-sdk'
 
 const client = new ForexTradingSDK({
   apikey: process.env.FOREX_TRADING_APIKEY,

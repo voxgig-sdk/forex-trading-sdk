@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { ForexTradingSDK } from '@voxgig-sdk/forex-trading'
+import { ForexTradingSDK } from '@voxgig-sdk/forex-trading-sdk'
 
 const client = new ForexTradingSDK({
   apikey: process.env.FOREX_TRADING_APIKEY,
@@ -443,7 +443,7 @@ forex-trading/
 Import the SDK from the package root:
 
 ```ts
-import { ForexTradingSDK } from '@voxgig-sdk/forex-trading'
+import { ForexTradingSDK } from '@voxgig-sdk/forex-trading-sdk'
 ```
 
 ### Entity state

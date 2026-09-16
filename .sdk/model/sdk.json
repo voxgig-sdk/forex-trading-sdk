@@ -24,7 +24,71 @@
         "repr": "auto"
       },
       "contributor": {},
-      "docs": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "market_data": {
           "active": true,
@@ -195,6 +259,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /instruments",
+                    "json": "{\"operationId\":\"getInstruments\",\"parameters\":[{\"description\":\"Filter instruments by category\",\"in\":\"query\",\"name\":\"category\",\"required\":false,\"schema\":{\"default\":\"all\",\"enum\":[\"majors\",\"minors\",\"exotics\",\"precious_metals\",\"all\"],\"type\":\"string\"}},{\"description\":\"Account type for pricing tier\",\"in\":\"query\",\"name\":\"accountType\",\"required\":false,\"schema\":{\"default\":\"Standard\",\"enum\":[\"Standard\",\"Premium\",\"Prime\"],\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"count\":2,\"instruments\":[{\"baseCurrency\":\"EUR\",\"category\":\"majors\",\"leverage\":{\"max\":100},\"lotSizes\":[\"micro\",\"mini\",\"standard\"],\"marginRequirement\":1,\"minSpread\":{\"Premium\":1.4,\"Prime\":1.1,\"Standard\":1.7},\"name\":\"Euro vs US Dollar\",\"quoteCurrency\":\"USD\",\"symbol\":\"EUR/USD\",\"tradingHours\":\"24/5\"},{\"baseCurrency\":\"XAU\",\"category\":\"precious_metals\",\"leverage\":{\"max\":50},\"lotSizes\":[\"micro\",\"mini\",\"standard\"],\"marginRequirement\":2,\"minSpread\":{\"Premium\":0.43,\"Prime\":0.41,\"Standard\":0.46},\"name\":\"Gold\",\"quoteCurrency\":\"USD\",\"symbol\":\"XAU/USD\",\"tradingHours\":\"24/5\"}]},\"schema\":{\"properties\":{\"count\":{\"description\":\"Total number of instruments returned\",\"type\":\"integer\"},\"instruments\":{\"items\":{\"properties\":{\"baseCurrency\":{\"description\":\"Base currency code\",\"example\":\"EUR\",\"type\":\"string\"},\"category\":{\"description\":\"Instrument category\",\"enum\":[\"majors\",\"minors\",\"exotics\",\"precious_metals\"],\"type\":\"string\"},\"description\":{\"description\":\"Additional information about the instrument\",\"type\":\"string\"},\"leverage\":{\"properties\":{\"max\":{\"description\":\"Maximum leverage ratio\",\"example\":100,\"type\":\"integer\"}},\"type\":\"object\"},\"lotSizes\":{\"description\":\"Available lot sizes\",\"items\":{\"enum\":[\"micro\",\"mini\",\"standard\"],\"type\":\"string\"},\"type\":\"array\"},\"marginRequirement\":{\"description\":\"Margin requirement percentage\",\"example\":1,\"format\":\"double\",\"type\":\"number\"},\"minSpread\":{\"description\":\"Minimum spreads by account type (in pips or points)\",\"properties\":{\"Premium\":{\"format\":\"double\",\"type\":\"number\"},\"Prime\":{\"format\":\"double\",\"type\":\"number\"},\"Standard\":{\"format\":\"double\",\"type\":\"number\"}},\"type\":\"object\"},\"name\":{\"description\":\"Full name of the instrument\",\"example\":\"Euro vs US Dollar\",\"type\":\"string\"},\"quoteCurrency\":{\"description\":\"Quote currency code\",\"example\":\"USD\",\"type\":\"string\"},\"symbol\":{\"description\":\"Trading symbol\",\"example\":\"EUR/USD\",\"type\":\"string\"},\"tradingHours\":{\"description\":\"Trading hours availability\",\"example\":\"24/5\",\"type\":\"string\"}},\"required\":[\"symbol\",\"name\",\"category\",\"marginRequirement\"],\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response with trading instruments\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"example\":\"INVALID_SYMBOL\",\"type\":\"string\"},\"details\":{\"description\":\"Additional error details\",\"type\":\"string\"},\"message\":{\"description\":\"Human-readable error message\",\"example\":\"The specified trading symbol is not valid\",\"type\":\"string\"}},\"required\":[\"code\",\"message\"],\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Invalid request parameters\"},\"401\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"example\":\"INVALID_SYMBOL\",\"type\":\"string\"},\"details\":{\"description\":\"Additional error details\",\"type\":\"string\"},\"message\":{\"description\":\"Human-readable error message\",\"example\":\"The specified trading symbol is not valid\",\"type\":\"string\"}},\"required\":[\"code\",\"message\"],\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Unauthorized - Invalid or missing API key\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"example\":\"INVALID_SYMBOL\",\"type\":\"string\"},\"details\":{\"description\":\"Additional error details\",\"type\":\"string\"},\"message\":{\"description\":\"Human-readable error message\",\"example\":\"The specified trading symbol is not valid\",\"type\":\"string\"}},\"required\":[\"code\",\"message\"],\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"security\":[{\"apiKey\":[]}],\"securitySchemes\":{\"apiKey\":{\"description\":\"API key for authentication\",\"in\":\"header\",\"name\":\"X-API-Key\",\"type\":\"apiKey\"},\"oauth2\":{\"description\":\"OAuth2 authentication for trading operations\",\"flows\":{\"authorizationCode\":{\"authorizationUrl\":\"https://auth.swissquote.com/oauth/authorize\",\"scopes\":{\"read\":\"Read market data and account information\",\"trade\":\"Execute trades and manage positions\"},\"tokenUrl\":\"https://auth.swissquote.com/oauth/token\"}},\"type\":\"oauth2\"}},\"securitySource\":\"operation\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/instruments",
@@ -238,6 +308,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /quotes",
+                    "json": "{\"operationId\":\"getQuotes\",\"parameters\":[{\"description\":\"Comma-separated list of trading symbols (e.g., EUR/USD, GBP/USD, XAU/USD)\",\"in\":\"query\",\"name\":\"symbols\",\"required\":true,\"schema\":{\"example\":\"EUR/USD,GBP/USD,XAU/USD\",\"type\":\"string\"}},{\"description\":\"Account type for pricing tier\",\"in\":\"query\",\"name\":\"accountType\",\"required\":false,\"schema\":{\"default\":\"Standard\",\"enum\":[\"Standard\",\"Premium\",\"Prime\"],\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"quotes\":[{\"ask\":1.0867,\"bid\":1.085,\"change\":0.15,\"changePercent\":0.14,\"currency\":\"USD\",\"name\":\"Euro vs US Dollar\",\"spread\":1.7,\"symbol\":\"EUR/USD\"},{\"ask\":2046.06,\"bid\":2045.6,\"change\":12.3,\"changePercent\":0.6,\"currency\":\"USD\",\"name\":\"Gold CFDs\",\"spread\":0.46,\"symbol\":\"XAU/USD\"}],\"timestamp\":\"2024-01-15T14:30:00Z\"},\"schema\":{\"properties\":{\"quotes\":{\"items\":{\"properties\":{\"ask\":{\"description\":\"Current ask price\",\"example\":1.0867,\"format\":\"double\",\"type\":\"number\"},\"bid\":{\"description\":\"Current bid price\",\"example\":1.085,\"format\":\"double\",\"type\":\"number\"},\"change\":{\"description\":\"Price change from previous close\",\"example\":0.0015,\"format\":\"double\",\"type\":\"number\"},\"changePercent\":{\"description\":\"Percentage change from previous close\",\"example\":0.14,\"format\":\"double\",\"type\":\"number\"},\"currency\":{\"description\":\"Quote currency\",\"example\":\"USD\",\"type\":\"string\"},\"lastUpdated\":{\"description\":\"Last update timestamp\",\"format\":\"date-time\",\"type\":\"string\"},\"name\":{\"description\":\"Full name of the trading pair\",\"example\":\"Euro vs US Dollar\",\"type\":\"string\"},\"spread\":{\"description\":\"Spread in pips or points\",\"example\":1.7,\"format\":\"double\",\"type\":\"number\"},\"symbol\":{\"description\":\"Trading symbol\",\"example\":\"EUR/USD\",\"type\":\"string\"}},\"required\":[\"symbol\",\"name\",\"bid\",\"ask\",\"currency\"],\"type\":\"object\"},\"type\":\"array\"},\"timestamp\":{\"description\":\"Time of quote generation\",\"format\":\"date-time\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with market quotes\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"example\":\"INVALID_SYMBOL\",\"type\":\"string\"},\"details\":{\"description\":\"Additional error details\",\"type\":\"string\"},\"message\":{\"description\":\"Human-readable error message\",\"example\":\"The specified trading symbol is not valid\",\"type\":\"string\"}},\"required\":[\"code\",\"message\"],\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Invalid request parameters\"},\"401\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"example\":\"INVALID_SYMBOL\",\"type\":\"string\"},\"details\":{\"description\":\"Additional error details\",\"type\":\"string\"},\"message\":{\"description\":\"Human-readable error message\",\"example\":\"The specified trading symbol is not valid\",\"type\":\"string\"}},\"required\":[\"code\",\"message\"],\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Unauthorized - Invalid or missing API key\"},\"429\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"example\":\"INVALID_SYMBOL\",\"type\":\"string\"},\"details\":{\"description\":\"Additional error details\",\"type\":\"string\"},\"message\":{\"description\":\"Human-readable error message\",\"example\":\"The specified trading symbol is not valid\",\"type\":\"string\"}},\"required\":[\"code\",\"message\"],\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Rate limit exceeded\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"example\":\"INVALID_SYMBOL\",\"type\":\"string\"},\"details\":{\"description\":\"Additional error details\",\"type\":\"string\"},\"message\":{\"description\":\"Human-readable error message\",\"example\":\"The specified trading symbol is not valid\",\"type\":\"string\"}},\"required\":[\"code\",\"message\"],\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"security\":[{\"apiKey\":[]}],\"securitySchemes\":{\"apiKey\":{\"description\":\"API key for authentication\",\"in\":\"header\",\"name\":\"X-API-Key\",\"type\":\"apiKey\"},\"oauth2\":{\"description\":\"OAuth2 authentication for trading operations\",\"flows\":{\"authorizationCode\":{\"authorizationUrl\":\"https://auth.swissquote.com/oauth/authorize\",\"scopes\":{\"read\":\"Read market data and account information\",\"trade\":\"Execute trades and manage positions\"},\"tokenUrl\":\"https://auth.swissquote.com/oauth/token\"}},\"type\":\"oauth2\"}},\"securitySource\":\"operation\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/quotes",
@@ -266,13 +342,223 @@
         }
       },
       "feature": {
+        "ratelimit": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "burst": 5,
+              "rate": 5
+            },
+            "optspec": {
+              "now": "`$FUNCTION`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "ratelimit",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Client-side rate limiting via a token bucket",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
+        "retry": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "factor": 2,
+              "maxDelay": 2000,
+              "minDelay": 50,
+              "retries": 2,
+              "statuses": [
+                408,
+                425,
+                429,
+                500,
+                502,
+                503,
+                504
+              ]
+            },
+            "optspec": {
+              "jitter": "`$BOOLEAN`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "retry",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Automatic retry of transient failures with exponential backoff",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
         "test": {
           "active": true,
           "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "config": {
             "options": {
               "active": false
-            }
+            },
+            "optspec": {
+              "entity": "`$MAP`",
+              "net": "`$MAP`"
+            },
+            "strict": false
           },
           "hook": {
             "GetData": {
@@ -363,6 +649,102 @@
           "title": "In-memory mock transport for testing without a live server",
           "transport": "base",
           "version": "0.0.1"
+        },
+        "timeout": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "ms": 30000
+            },
+            "optspec": {
+              "clearTimer": "`$FUNCTION`",
+              "setTimer": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "timeout",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Per-request timeout with transport abort",
+          "transport": "wrap",
+          "version": "0.0.1"
         }
       },
       "flow": {
@@ -420,6 +802,48 @@
         "website": "https://swissquote.com"
       },
       "option": {},
+      "optspec": {
+        "allow": {
+          "method": "GET,PUT,POST,PATCH,DELETE,OPTIONS",
+          "op": "create,update,load,list,remove,command,direct,graphql"
+        },
+        "apikey": "",
+        "auth": {
+          "basic": false,
+          "prefix": ""
+        },
+        "base": "http://localhost:8000",
+        "clean": {
+          "keys": "key,token,id"
+        },
+        "entity": {
+          "`$CHILD`": {
+            "`$OPEN`": true,
+            "active": false,
+            "alias": {}
+          }
+        },
+        "extend": "`$ANY`",
+        "headers": {
+          "`$CHILD`": "`$STRING`"
+        },
+        "prefix": "",
+        "secret": "",
+        "server": {
+          "`$CHILD`": ""
+        },
+        "suffix": "",
+        "system": {
+          "fetch": "`$ANY`"
+        },
+        "test": {
+          "active": false,
+          "entity": {
+            "`$OPEN`": true
+          }
+        },
+        "utility": {}
+      },
       "repo": {
         "host": "github.com",
         "path": ""
@@ -974,6 +1398,7 @@
           },
           "package": "@voxgig/sdkgen",
           "provides": {
+            "schema": true,
             "sekreto": true
           },
           "publish": {
@@ -1015,7 +1440,7 @@
         "live": {
           "app": false,
           "base": "",
-          "strict": false
+          "strict": true
         }
       }
     }

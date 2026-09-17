@@ -105,12 +105,12 @@ local results, err = client:MarketData():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/forex-trading-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/forex-trading-sdk/releases) |
-| Python | `voxgig-sdk-forex-trading` | publish pending — [install from git tag](https://github.com/voxgig-sdk/forex-trading-sdk/releases) |
-| PHP | `voxgig-sdk/forex-trading` | publish pending — [install from git tag](https://github.com/voxgig-sdk/forex-trading-sdk/releases) |
+| TypeScript | `@voxgig-sdk/forex-trading-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/forex-trading-sdk/tags) |
+| Python | `voxgig-sdk-forex-trading` | publish pending — [install from git tag](https://github.com/voxgig-sdk/forex-trading-sdk/tags) |
+| PHP | `voxgig-sdk/forex-trading` | publish pending — [install from git tag](https://github.com/voxgig-sdk/forex-trading-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/forex-trading-sdk/go` | `go get github.com/voxgig-sdk/forex-trading-sdk/go@latest` |
-| Ruby | `voxgig-sdk-forex-trading` | publish pending — [install from git tag](https://github.com/voxgig-sdk/forex-trading-sdk/releases) |
-| Lua | `voxgig-sdk-forex-trading` | publish pending — [install from git tag](https://github.com/voxgig-sdk/forex-trading-sdk/releases) |
+| Ruby | `voxgig-sdk-forex-trading` | publish pending — [install from git tag](https://github.com/voxgig-sdk/forex-trading-sdk/tags) |
+| Lua | `voxgig-sdk-forex-trading` | publish pending — [install from git tag](https://github.com/voxgig-sdk/forex-trading-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/forex-trading-sdk/go-cli` | `go install github.com/voxgig-sdk/forex-trading-sdk/go-cli/cmd/forex-trading@latest` |
 | Go MCP server | `github.com/voxgig-sdk/forex-trading-sdk/go-mcp` | `go get github.com/voxgig-sdk/forex-trading-sdk/go-mcp@latest` |
 

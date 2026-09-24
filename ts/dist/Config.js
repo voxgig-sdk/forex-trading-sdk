@@ -11,19 +11,12 @@ const FEATURE_CLASS = {
     test: TestFeature_1.TestFeature,
     timeout: TimeoutFeature_1.TimeoutFeature,
 };
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS = {};
 exports.FEATURE_PLUGINS = FEATURE_PLUGINS;
 class Config {
     makeFeature(fn) {
         const fc = FEATURE_CLASS[fn];
         const fi = new fc();
-        // TODO: errors etc
         return fi;
     }
     // False for a feature added at runtime via options.extend (station's
@@ -117,107 +110,125 @@ class Config {
         "market_data": {
             "fields": [
                 {
-                    "format": "double",
                     "name": "ask",
+                    "title": "Ask",
+                    "type": "`$NUMBER`",
                     "req": true,
                     "short": "Current ask price",
-                    "type": "`$NUMBER`"
+                    "format": "double"
                 },
                 {
                     "name": "baseCurrency",
-                    "short": "Base currency code",
-                    "type": "`$STRING`"
+                    "title": "Base Currency",
+                    "type": "`$STRING`",
+                    "short": "Base currency code"
                 },
                 {
-                    "format": "double",
                     "name": "bid",
+                    "title": "Bid",
+                    "type": "`$NUMBER`",
                     "req": true,
                     "short": "Current bid price",
-                    "type": "`$NUMBER`"
+                    "format": "double"
                 },
                 {
                     "name": "category",
+                    "title": "Category",
+                    "type": "`$STRING`",
                     "req": true,
-                    "short": "Instrument category",
-                    "type": "`$STRING`"
+                    "short": "Instrument category"
                 },
                 {
-                    "format": "double",
                     "name": "change",
+                    "title": "Change",
+                    "type": "`$NUMBER`",
                     "short": "Price change from previous close",
-                    "type": "`$NUMBER`"
+                    "format": "double"
                 },
                 {
-                    "format": "double",
                     "name": "changePercent",
+                    "title": "Change Percent",
+                    "type": "`$NUMBER`",
                     "short": "Percentage change from previous close",
-                    "type": "`$NUMBER`"
+                    "format": "double"
                 },
                 {
                     "name": "currency",
+                    "title": "Currency",
+                    "type": "`$STRING`",
                     "req": true,
-                    "short": "Quote currency",
-                    "type": "`$STRING`"
+                    "short": "Quote currency"
                 },
                 {
                     "name": "description",
-                    "short": "Additional information about the instrument",
-                    "type": "`$STRING`"
+                    "title": "Description",
+                    "type": "`$STRING`",
+                    "short": "Additional information about the instrument"
                 },
                 {
-                    "format": "date-time",
                     "name": "lastUpdated",
+                    "title": "Last Updated",
+                    "type": "`$STRING`",
                     "short": "Last update timestamp",
-                    "type": "`$STRING`"
+                    "format": "date-time"
                 },
                 {
                     "name": "leverage",
+                    "title": "Leverage",
                     "type": "`$OBJECT`"
                 },
                 {
                     "name": "lotSizes",
-                    "short": "Available lot sizes",
-                    "type": "`$ARRAY`"
+                    "title": "Lot Sizes",
+                    "type": "`$ARRAY`",
+                    "short": "Available lot sizes"
                 },
                 {
-                    "format": "double",
                     "name": "marginRequirement",
+                    "title": "Margin Requirement",
+                    "type": "`$NUMBER`",
                     "req": true,
                     "short": "Margin requirement percentage",
-                    "type": "`$NUMBER`"
+                    "format": "double"
                 },
                 {
                     "name": "minSpread",
-                    "short": "Minimum spreads by account type (in pips or points)",
-                    "type": "`$OBJECT`"
+                    "title": "Min Spread",
+                    "type": "`$OBJECT`",
+                    "short": "Minimum spreads by account type (in pips or points)"
                 },
                 {
                     "name": "name",
+                    "title": "Name",
+                    "type": "`$STRING`",
                     "req": true,
-                    "short": "Full name of the instrument",
-                    "type": "`$STRING`"
+                    "short": "Full name of the instrument"
                 },
                 {
                     "name": "quoteCurrency",
-                    "short": "Quote currency code",
-                    "type": "`$STRING`"
+                    "title": "Quote Currency",
+                    "type": "`$STRING`",
+                    "short": "Quote currency code"
                 },
                 {
-                    "format": "double",
                     "name": "spread",
+                    "title": "Spread",
+                    "type": "`$NUMBER`",
                     "short": "Spread in pips or points",
-                    "type": "`$NUMBER`"
+                    "format": "double"
                 },
                 {
                     "name": "symbol",
+                    "title": "Symbol",
+                    "type": "`$STRING`",
                     "req": true,
-                    "short": "Trading symbol",
-                    "type": "`$STRING`"
+                    "short": "Trading symbol"
                 },
                 {
                     "name": "tradingHours",
-                    "short": "Trading hours availability",
-                    "type": "`$STRING`"
+                    "title": "Trading Hours",
+                    "type": "`$STRING`",
+                    "short": "Trading hours availability"
                 }
             ],
             "name": "market_data",
@@ -227,24 +238,6 @@ class Config {
                     "name": "list",
                     "points": [
                         {
-                            "args": {
-                                "query": [
-                                    {
-                                        "example": "Standard",
-                                        "kind": "query",
-                                        "name": "account_type",
-                                        "orig": "account_type",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "example": "all",
-                                        "kind": "query",
-                                        "name": "category",
-                                        "orig": "category",
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/instruments",
@@ -253,40 +246,40 @@ class Config {
                                     "lit": "instruments"
                                 }
                             ],
+                            "parts": [
+                                "instruments"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body.instruments`"
+                            },
+                            "args": {
+                                "query": [
+                                    {
+                                        "name": "account_type",
+                                        "orig": "account_type",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "example": "Standard"
+                                    },
+                                    {
+                                        "name": "category",
+                                        "orig": "category",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "example": "all"
+                                    }
+                                ]
+                            },
                             "select": {
                                 "exist": [
                                     "account_type",
                                     "category"
                                 ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body.instruments`"
-                            },
-                            "parts": [
-                                "instruments"
-                            ]
+                            }
                         },
                         {
-                            "args": {
-                                "query": [
-                                    {
-                                        "example": "Standard",
-                                        "kind": "query",
-                                        "name": "account_type",
-                                        "orig": "account_type",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "example": "EUR/USD,GBP/USD,XAU/USD",
-                                        "kind": "query",
-                                        "name": "symbol",
-                                        "orig": "symbol",
-                                        "reqd": true,
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/quotes",
@@ -295,19 +288,39 @@ class Config {
                                     "lit": "quotes"
                                 }
                             ],
+                            "parts": [
+                                "quotes"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body.quotes`"
+                            },
+                            "args": {
+                                "query": [
+                                    {
+                                        "name": "account_type",
+                                        "orig": "account_type",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "example": "Standard"
+                                    },
+                                    {
+                                        "name": "symbol",
+                                        "orig": "symbol",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "reqd": true,
+                                        "example": "EUR/USD,GBP/USD,XAU/USD"
+                                    }
+                                ]
+                            },
                             "select": {
                                 "exist": [
                                     "account_type",
                                     "symbol"
                                 ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body.quotes`"
-                            },
-                            "parts": [
-                                "quotes"
-                            ]
+                            }
                         }
                     ]
                 }

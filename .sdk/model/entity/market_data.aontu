@@ -1,0 +1,241 @@
+# Entity: market_data
+
+main: kit: entity: market_data: {
+
+  alias: field: {}
+
+  fields: {
+    ask: {
+      fo: "double"
+      h: "Ask"
+      n: "ask"
+      r: true
+      sh: "Current ask price"
+      t: "`$NUMBER`"
+    }
+    baseCurrency: {
+      h: "Base Currency"
+      n: "baseCurrency"
+      r: false
+      sh: "Base currency code"
+      t: "`$STRING`"
+    }
+    bid: {
+      fo: "double"
+      h: "Bid"
+      n: "bid"
+      r: true
+      sh: "Current bid price"
+      t: "`$NUMBER`"
+    }
+    category: {
+      h: "Category"
+      n: "category"
+      r: true
+      sh: "Instrument category"
+      t: "`$STRING`"
+    }
+    change: {
+      fo: "double"
+      h: "Change"
+      n: "change"
+      r: false
+      sh: "Price change from previous close"
+      t: "`$NUMBER`"
+    }
+    changePercent: {
+      fo: "double"
+      h: "Change Percent"
+      n: "changePercent"
+      r: false
+      sh: "Percentage change from previous close"
+      t: "`$NUMBER`"
+    }
+    currency: {
+      h: "Currency"
+      n: "currency"
+      r: true
+      sh: "Quote currency"
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "Additional information about the instrument"
+      t: "`$STRING`"
+    }
+    lastUpdated: {
+      fo: "date-time"
+      h: "Last Updated"
+      n: "lastUpdated"
+      r: false
+      sh: "Last update timestamp"
+      t: "`$STRING`"
+    }
+    leverage: {
+      h: "Leverage"
+      n: "leverage"
+      r: false
+      t: "`$OBJECT`"
+    }
+    lotSizes: {
+      h: "Lot Sizes"
+      n: "lotSizes"
+      r: false
+      sh: "Available lot sizes"
+      t: "`$ARRAY`"
+    }
+    marginRequirement: {
+      fo: "double"
+      h: "Margin Requirement"
+      n: "marginRequirement"
+      r: true
+      sh: "Margin requirement percentage"
+      t: "`$NUMBER`"
+    }
+    minSpread: {
+      h: "Min Spread"
+      n: "minSpread"
+      r: false
+      sh: "Minimum spreads by account type (in pips or points)"
+      t: "`$OBJECT`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "Full name of the instrument"
+      t: "`$STRING`"
+    }
+    quoteCurrency: {
+      h: "Quote Currency"
+      n: "quoteCurrency"
+      r: false
+      sh: "Quote currency code"
+      t: "`$STRING`"
+    }
+    spread: {
+      fo: "double"
+      h: "Spread"
+      n: "spread"
+      r: false
+      sh: "Spread in pips or points"
+      t: "`$NUMBER`"
+    }
+    symbol: {
+      h: "Symbol"
+      n: "symbol"
+      r: true
+      sh: "Trading symbol"
+      t: "`$STRING`"
+    }
+    tradingHours: {
+      h: "Trading Hours"
+      n: "tradingHours"
+      r: false
+      sh: "Trading hours availability"
+      t: "`$STRING`"
+    }
+  }
+
+  name: "market_data"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /instruments"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "Standard"
+                k: "query"
+                n: "account_type"
+                or: "account_type"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "all"
+                k: "query"
+                n: "category"
+                or: "category"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/instruments"
+          q: {
+            exist: [
+              "account_type"
+              "category"
+            ]
+          }
+          s: [
+            {
+              lit: "instruments"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.instruments`"
+          }
+        }
+        {
+          co: {
+            id: "GET /quotes"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "Standard"
+                k: "query"
+                n: "account_type"
+                or: "account_type"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "EUR/USD,GBP/USD,XAU/USD"
+                k: "query"
+                n: "symbol"
+                or: "symbol"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/quotes"
+          q: {
+            exist: [
+              "account_type"
+              "symbol"
+            ]
+          }
+          s: [
+            {
+              lit: "quotes"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.quotes`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

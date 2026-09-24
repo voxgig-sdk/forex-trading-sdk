@@ -45,7 +45,7 @@ local marketdatas, err = client:MarketData():list()
 if err then error(err) end
 
 for _, item in ipairs(marketdatas) do
-  print(item["baseCurrency"])
+  print(item)
 end
 ```
 

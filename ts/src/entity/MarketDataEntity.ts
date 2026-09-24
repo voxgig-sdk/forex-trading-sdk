@@ -19,7 +19,6 @@ import type {
   MarketDataListMatch,
 } from '../ForexTradingTypes'
 
-// TODO: needs Entity superclass
 class MarketDataEntity extends ForexTradingEntityBase<MarketData> {
 
   constructor(client: ForexTradingSDK, entopts: any) {

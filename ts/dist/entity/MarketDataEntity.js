@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MarketDataEntity = void 0;
 const ForexTradingEntityBase_1 = require("../ForexTradingEntityBase");
-// TODO: needs Entity superclass
 class MarketDataEntity extends ForexTradingEntityBase_1.ForexTradingEntityBase {
     constructor(client, entopts) {
         super(client, entopts);
